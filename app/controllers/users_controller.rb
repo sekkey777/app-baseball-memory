@@ -19,6 +19,17 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      flash[:sucess] = 'ユーザー情報を更新しました'
+      redirect_to user_path(@user)
+    else
+      render 'new'
+    end
   end
 
   private

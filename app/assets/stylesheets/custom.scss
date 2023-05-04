@@ -22,6 +22,26 @@ $third-color-gray: #FDFDFD;
   }
 }
 
+.btn-primary-gray {
+  background-color: $primary-color-gray;
+  border: $primary-color-gray;
+  color: $third-color-gray;
+  &:hover {
+    background-color: $second-color-gray;
+    color: $primary-color-gray;
+  }
+}
+
+.btn-primary-green {
+  background-color: $primary-color-green;
+  border: $primary-color-green;
+  color: $third-color-gray;
+  &:hover {
+    background-color: $second-color-green;
+    color: $primary-color-green;
+  }
+}
+
 // テキスト
 .text-main {
   color: $primary-color-green;
