@@ -1,0 +1,33 @@
+$primary-color-green: #3C899A;
+$second-color-green: #B9CCD0;
+
+$primary-color-red: #9A3C64;
+$second-color-red: #DCC7D0;
+
+$primary-color-bule: #3C469A;
+$second-color-blue: #B2B5D1;
+
+$primary-color-gray: #717171;
+$second-color-gray: #D7D7D7;
+$third-color-gray: #FDFDFD;
+
+// ボタン
+.btn-primary-red {
+  background-color: $primary-color-red;
+  border: $primary-color-red;
+  color: $third-color-gray;
+  &:hover {
+    background-color: $second-color-red;
+    color: $primary-color-red;
+  }
+}
+
+// テキスト
+.text-main {
+  color: $primary-color-green;
+}
+
+// 背景
+.bg-sub-color-gray {
+  background-color: $third-color-gray;
+}
