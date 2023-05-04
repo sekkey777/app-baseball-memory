@@ -11,6 +11,23 @@ $primary-color-gray: #717171;
 $second-color-gray: #D7D7D7;
 $third-color-gray: #FDFDFD;
 
+// ヘッダー
+.header-left-btn {
+  @extend .btn;
+  color: $primary-color-green;
+  font-weight: 800;
+  border-radius: 0px;
+  border: none;
+  &:hover,
+  &:active {
+    border-bottom: $primary-color-green solid 2px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    color: $primary-color-green !important;
+  }
+}
+
 // ボタン
 .btn-primary-red {
   background-color: $primary-color-red;
@@ -33,12 +50,14 @@ $third-color-gray: #FDFDFD;
 }
 
 .btn-primary-green {
+  @extend .btn;
   background-color: $primary-color-green;
   border: $primary-color-green;
   color: $third-color-gray;
-  &:hover {
-    background-color: $second-color-green;
-    color: $primary-color-green;
+  &:hover,
+  &:active {
+    background-color: $second-color-green !important;
+    color: $primary-color-green !important;
   }
 }
 

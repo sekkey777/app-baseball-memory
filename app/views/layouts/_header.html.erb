@@ -1,0 +1,31 @@
+<header>
+  <nav class='navbar navbar-expand-lg navbar-light bg-light'>
+    <div class='container-fluid'>
+      <ul class='navbar-nav me-auto mb-2 mb-lg-0'>
+        <li class='nav-item'>
+          <%= link_to( new_user_path, class: 'header-left-btn' ) do %>
+            <i class='bi bi-house-door-fill me-1'></i>
+            ホーム
+          <% end %>
+        </li>
+        <li class='nav-item'>
+          <%= link_to( new_user_path, class: 'header-left-btn' ) do %>
+            <i class="bi bi-card-text me-1"></i>
+            投稿
+          <% end %>
+        </li>
+        <li class='nav-item'>
+          <%= link_to( new_user_path, class: 'header-left-btn' ) do %>
+            <i class="bi bi-trophy me-1"></i>
+            ランキング
+          <% end %>
+        </li>
+      </ul>
+      <div class='d-flex'>
+        <button class='btn-primary-green me-2' type='submit'>ログイン</button>
+        <button class='btn-primary-green me-2' type='submit'>ゲストログイン</button>
+        <%= link_to '新規登録', new_user_path, class: 'btn btn-primary-green' %>
+      </div>
+    </div>
+  </nav>
+</header>
