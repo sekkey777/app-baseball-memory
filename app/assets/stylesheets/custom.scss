@@ -13,7 +13,7 @@ $third-color-gray: #FDFDFD;
 
 // ヘッダー
 .header-left-btn {
-  @extend .btn;
+  @extend .btn !optional;
   color: $primary-color-green;
   font-weight: 800;
   border-radius: 0px;
@@ -68,7 +68,7 @@ body {
 }
 
 .btn-primary-green {
-  @extend .btn;
+  @extend .btn !optional;
   background-color: $primary-color-green;
   border: $primary-color-green;
   color: $third-color-gray;
@@ -82,6 +82,11 @@ body {
 // テキスト
 .text-main {
   color: $primary-color-green;
+}
+
+// リンク
+.link-text {
+  text-decoration: none;
 }
 
 // 背景
