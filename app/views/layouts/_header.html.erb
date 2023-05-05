@@ -22,7 +22,7 @@
         </li>
       </ul>
       <div class='d-flex'>
-        <button class='btn-primary-green me-2' type='submit'>ログイン</button>
+        <%= link_to 'ログイン', login_path, class: 'btn btn-primary-green me-2' %>
         <button class='btn-primary-green me-2' type='submit'>ゲストログイン</button>
         <%= link_to '新規登録', new_user_path, class: 'btn btn-primary-green' %>
       </div>
