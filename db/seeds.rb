@@ -57,4 +57,10 @@ categories = %W(
 
 Category.create!(categories.map { |name| { name: name } })
 
+p '=========================== CREATE USERS ==========================='
+
+5.times do |i|
+  User.create(name: "username#{i}", password: "password+#{i}", email: "username#{i}@email.com")
+end
+
 p '=========================== END ==========================='
