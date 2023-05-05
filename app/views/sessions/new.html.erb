@@ -1,0 +1,22 @@
+<h1 class='text-main'>Sessions#new</h1>
+
+<div class='container shadow-sm w-50 p-5 text-main bg-sub-color-gray'>
+  <div class='mb-5'> 
+    <h3 class='col-auto'><span class='display-5'>| </span>ログイン</h3>
+  </div> 
+
+  <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
+    <div class='row mb-5'>
+      <div class='col-sm-3'><%= f.label :name, 'ユーザー名', class: 'col-form-label' %></div>
+      <div class='col-sm-9'><%= f.text_field :name, class: 'form-control' %></div>
+    </div>
+    <div class='row mb-5'>
+      <div class='col-sm-3'><%= f.label :password, 'パスワード', class: 'col-form-label' %></div>
+      <div class='col-sm-9'><%= f.password_field :password, class: 'form-control' %></div>
+    </div>
+    <div class='d-grid col-12 mx-auto, mb-5'>
+      <%= f.submit 'ログインする', class: 'btn btn-primary-red'%>
+    </div>
+  <% end %>
+  <div>アカウントをお持ちでない方は、<%= link_to 'アカウント登録', new_user_path, class: 'link-text' %>するか、<%= link_to 'ゲストログイン', new_user_path, class: 'link-text' %>をお使いください。</div>
+</div>
