@@ -23,8 +23,12 @@
       <div class='col-sm-3'><%= f.label :password_confirmation, 'パスワード（確認）', class: 'col-form-label' %></div>
       <div class='col-sm-9'><%= f.password_field :password_confirmation, class: 'form-control' %></div>
     </div>
-    <div class='d-grid col-12 mx-auto'>
+    <div class='d-grid col-12 mx-auto mb-3'>
       <%= f.submit '新規登録する', class: 'btn btn-primary-red'%>
     </div>
   <% end %>
+  <div>
+    アカウントをお持ちの方は、<%= link_to 'ログイン', login_path, class: 'link-text' %>してください。<br>
+    アカウントを作成せずに利用する場合は<%= link_to 'ゲストログイン', new_user_path, class: 'link-text' %>をお使いください。
+  </div>
 </div>
