@@ -1,2 +1,31 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<div class='container shadow-sm w-50 p-5 text-main bg-sub-color-gray my-5'>
+  <div class='mb-5'> 
+    <h3 class='col-auto'><span class='display-5'>| </span>思い出を投稿する</h3>
+  </div> 
+
+  <%= form_with(model: @post, local: true) do |f| %>
+    <div class='row mb-5'>
+      <div class='col-sm-3'><%= f.label :title, 'タイトル', class: 'col-form-label' %></div>
+      <div class='col-sm-9'><%= f.text_field :title, class: 'form-control' %></div>
+    </div>
+    <div class='row mb-5'>
+      <div class='col-sm-3'><%= f.label :baseball_team_id, 'チーム', class: 'col-form-label' %></div>
+      <div class='col-sm-9'><%= f.collection_select(:baseball_team_id, @baseball_teams, :id, :name, {:include_blank => true}, class: 'form-select') %></div>
+    </div>
+    <div class='row mb-5'>
+      <div class='col-sm-3'><%= f.label :baseball_park_id, '球場', class: 'col-form-label' %></div>
+      <div class='col-sm-9'><%= f.collection_select(:baseball_park_id, @baseball_parks, :id, :name, {:include_blank => true}, class: 'form-select') %></div>
+    </div>
+    <div class='row mb-5'>
+      <div class='col-sm-3'><%= f.label :category_id, 'カテゴリー', class: 'col-form-label' %></div>
+      <div class='col-sm-9'><%= f.collection_select(:category_id, @categories, :id, :name, {:include_blank => true}, class: 'form-select') %></div>
+    </div>
+    <div class='row mb-5'>
+      <div class='col-sm-3'><%= f.label :content, '投稿内容', class: 'col-form-label' %></div>
+      <div class='col-sm-9'><%= f.text_area :content, rows: 8, class: 'form-control' %></div>
+    </div>
+    <div class='d-grid col-12 mx-auto mb-3'>
+      <%= f.submit '投稿する', class: 'btn btn-primary-red'%>
+    </div>
+  <% end %>
+</div>
