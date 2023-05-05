@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_03_161626) do
+ActiveRecord::Schema.define(version: 2023_05_05_134500) do
 
   create_table "baseball_parks", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -30,6 +30,21 @@ ActiveRecord::Schema.define(version: 2023_05_03_161626) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "posts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "content", null: false
+    t.bigint "user_id", null: false
+    t.bigint "baseball_team_id", null: false
+    t.bigint "baseball_park_id", null: false
+    t.bigint "category_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["baseball_park_id"], name: "index_posts_on_baseball_park_id"
+    t.index ["baseball_team_id"], name: "index_posts_on_baseball_team_id"
+    t.index ["category_id"], name: "index_posts_on_category_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", null: false
@@ -40,4 +55,8 @@ ActiveRecord::Schema.define(version: 2023_05_03_161626) do
     t.index ["name"], name: "index_users_on_name", unique: true
   end
 
+  add_foreign_key "posts", "baseball_parks"
+  add_foreign_key "posts", "baseball_teams"
+  add_foreign_key "posts", "categories"
+  add_foreign_key "posts", "users"
 end
