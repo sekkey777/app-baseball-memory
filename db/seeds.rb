@@ -67,7 +67,7 @@ p '=========================== CREATE POSTS ==========================='
 
 4.times do |i|
   11.times do |j|
-    Post.create(title: "#{i+1}番目の投稿です。" * 5, content: 'テストです。' * 50, user_id: i, baseball_team_id: (j+1), baseball_park_id: (j+1), category_id: (i+1))
+    Post.create(title: "#{j+1}番目の投稿です。" * 5, content: 'テストです。' * 50, user_id: i, baseball_team_id: (j+1), baseball_park_id: (j+1), category_id: (i+1))
   end
 end
 
