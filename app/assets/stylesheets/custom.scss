@@ -97,3 +97,20 @@ body {
 .bg-sub-color-gray {
   background-color: $third-color-gray;
 }
+
+// kaminariのカスタマイズ
+.page-item {
+  margin-right: 10px;
+}
+
+.pagination {
+  --bs-pagination-color: #FDFDFD;
+  --bs-pagination-bg: #B9CCD0;
+  --bs-pagination-border-color: #B9CCD0;
+  --bs-pagination-hover-color: #3C899A;
+  --bs-pagination-focus-color: #3C899A;
+  --bs-pagination-focus-box-shadow: 0 0 0 0.25rem #89aeb8;
+  --bs-pagination-active-color: #FDFDFD;
+  --bs-pagination-active-bg: #3C899A;
+  --bs-pagination-active-border-color: #3C899A;
+}

@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   def index
     @q = Post.ransack(params[:q])
-    @posts = @q.result
+    @posts = @q.result.page(params[:page])
     @categories = Category.all
     @baseball_parks = BaseballPark.all
     @baseball_teams = BaseballTeam.all
