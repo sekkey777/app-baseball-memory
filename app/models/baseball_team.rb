@@ -8,4 +8,5 @@
 #  updated_at :datetime         not null
 #
 class BaseballTeam < ApplicationRecord
+  has_one :post
 end
