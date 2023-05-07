@@ -1,0 +1,26 @@
+<div class='container shadow-sm w-50 p-5 text-main bg-sub-color-gray my-5'>
+  <div class='mb-5'> 
+    <h3 class='col-auto'><span class='display-5'>| </span><%= @post.title %></h3>
+  </div> 
+
+  <div class='row mb-5'>
+    <div class='col-sm-3'>チーム</div>
+    <div class='col-sm-9'><%= @post.baseball_team.name %></div>
+  </div>
+  <div class='row mb-5'>
+    <div class='col-sm-3'>球場</div>
+    <div class='col-sm-9'><%= @post.baseball_park.name %></div>
+  </div>
+  <div class='row mb-5'>
+    <div class='col-sm-3'>カテゴリー</div>
+    <div class='col-sm-9'><%= @post.category.name %></div>
+  </div>
+  <div class='row mb-5'>
+    <div class='col-sm-3'>投稿内容</div>
+    <div class='col-sm-9'><%= @post.content %></div>
+  </div>
+  <div class='d-grid col-12 mx-auto mb-3'>
+    <%= link_to "変更する　＞", edit_my_post_path(@post), class: 'btn btn-primary-green' %>
+  </div>
+
+</div>

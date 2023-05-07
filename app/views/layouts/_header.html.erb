@@ -25,6 +25,7 @@
         <% if logged_in? %>
           <%= link_to 'ログアウト', logout_path, method: :delete, class: 'btn btn-primary-green me-2' %>
           <%= link_to '思い出を投稿', new_post_path, class: 'btn btn-primary-green me-2' %>
+          <%= link_to '思い出一覧', my_posts_path, class: 'btn btn-primary-green me-2' %>
           <%= link_to '設定', user_path(current_user), class: 'btn btn-primary-green me-2' %>
           <%= link_to( new_user_path, class: 'header-left-btn' ) do %>
             <i class="bi bi-person-circle me-1"></i>
