@@ -18,6 +18,7 @@ $third-color-gray: #FDFDFD;
   font-weight: 800;
   border-radius: 0px;
   border: none;
+  border-bottom: $third-color-gray solid 2px;
   &:hover,
   &:active {
     border-bottom: $primary-color-green solid 2px;
