@@ -1,5 +1,5 @@
 class MyPostsController < ApplicationController
-  before_action :set_my_post, only: [:show, :edit, :update]
+  before_action :set_my_post, only: [:show, :edit, :update, :destroy]
   before_action :set_select_values, only: [:index, :edit, :update]
 
   def index
@@ -16,10 +16,16 @@ class MyPostsController < ApplicationController
   def update
     if @post.update(post_params)
       flash[:success] = '投稿内容を更新しました'
-      redirect_to post_path(@post)
+      redirect_to my_post_path(@post)
     else
       render 'new'
     end
+  end
+
+  def destroy
+    @post.destroy
+    flash[:danger] = "「#{@post.title}」投稿を削除しました"
+    redirect_to my_posts_path
   end
   
   private
