@@ -1,5 +1,10 @@
 class PostsController < ApplicationController
-  before_action :set_select_values, only: [:index, :new, :edit]
+  before_action :set_select_values, only: [:top, :index, :new, :edit]
+
+  def top
+    @q = Post.ransack(params[:q])
+    @posts = @q.result.page(params[:page])
+  end
 
   def index
     @q = Post.ransack(params[:q])

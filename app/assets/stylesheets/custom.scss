@@ -80,6 +80,18 @@ body {
   }
 }
 
+.btn-second-green {
+  @extend .btn !optional;
+  background-color: $third-color-gray;
+  border: $primary-color-green solid 2px;
+  color: $primary-color-green;
+  &:hover,
+  &:active {
+    background-color: $second-color-green !important;
+    color: $primary-color-green !important;
+  }
+}
+
 // テキスト
 .text-main {
   color: $primary-color-green;
@@ -87,6 +99,12 @@ body {
 
 .text-main-red {
   color: $primary-color-red;
+}
+
+.top-page-title {
+  font-family: 'Rowdies', cursive;
+  color: $primary-color-red;
+  font-size: 100px;
 }
 
 // リンク
