@@ -31,4 +31,8 @@ class Post < ApplicationRecord
   belongs_to :baseball_team
   belongs_to :baseball_park
   belongs_to :category
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["baseball_park_id", "baseball_team_id", "category_id", "title"]
+  end
 end
