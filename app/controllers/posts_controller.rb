@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  skip_before_action :login_required
   before_action :set_select_values, only: [:top, :index, :new, :edit]
 
   def top
