@@ -40,7 +40,7 @@ body {
 }
 .footer {
   position: absolute;
-  bottom: 0;
+  // bottom: 0;
   width: 100%;
   /* Set the fixed height of the footer here */
   height: 60px;
@@ -80,6 +80,20 @@ body {
   }
 }
 
+.btn-primary-green-sizeup {
+  @extend .btn !optional;
+  background-color: $primary-color-green;
+  border: $primary-color-green;
+  color: $third-color-gray;
+  &:hover,
+  &:active {
+    background-color: $primary-color-green;
+    border: $primary-color-green;
+    color: $third-color-gray;
+    transform: scale(1.1, 1.1);
+  }
+}
+
 .btn-second-green {
   @extend .btn !optional;
   background-color: $third-color-gray;
@@ -87,8 +101,10 @@ body {
   color: $primary-color-green;
   &:hover,
   &:active {
-    background-color: $second-color-green !important;
-    color: $primary-color-green !important;
+    background-color: $third-color-gray;
+    border: $primary-color-green solid 2px;
+    color: $primary-color-green;
+    transform: scale(1.1, 1.1);
   }
 }
 
@@ -107,6 +123,12 @@ body {
   font-size: 100px;
 }
 
+.top-page-sub-text {
+  font-family: 'Rowdies', cursive;
+  font-size: 30px;
+  font-weight: bold;
+}
+
 // リンク
 .link-text {
   text-decoration: none;
@@ -115,6 +137,15 @@ body {
 // 背景
 .bg-sub-color-gray {
   background-color: $third-color-gray;
+}
+
+.bg-color-clear {
+  background-color: rgba(253,253,253,0.6);
+}
+
+.bg-image {
+  background-image: image-url('baseball-park.jpg');
+  background-size: cover;
 }
 
 // kaminariのカスタマイズ
