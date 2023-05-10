@@ -27,6 +27,7 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Post < ApplicationRecord
+  # rubocop:disable Airbnb/OptArgParameters
   belongs_to :user
   belongs_to :baseball_team
   belongs_to :baseball_park
@@ -35,4 +36,5 @@ class Post < ApplicationRecord
   def self.ransackable_attributes(auth_object = nil)
     ["baseball_park_id", "baseball_team_id", "category_id", "title"]
   end
+  # rubocop:enable Airbnb/OptArgParameters
 end
