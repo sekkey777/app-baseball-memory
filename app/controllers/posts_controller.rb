@@ -33,6 +33,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :baseball_team_id, :baseball_park_id, :category_id)
+    params.require(:post).permit(:title, :content, :baseball_team_id, :baseball_park_id, :category_id, :photo)
   end
 end

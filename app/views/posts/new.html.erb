@@ -24,6 +24,10 @@
       <div class='col-sm-3'><%= f.label :content, '投稿内容', class: 'col-form-label' %></div>
       <div class='col-sm-9'><%= f.text_area :content, rows: 8, class: 'form-control' %></div>
     </div>
+    <div class='row mb-5'>
+      <div class='col-sm-3'><%= f.label :photo, '写真', class: 'col-form-label' %></div>
+      <div class='col-sm-9'><%= f.file_field :photo, rows: 8, class: 'form-control' %></div>
+    </div>
     <div class='d-grid col-12 mx-auto mb-3'>
       <%= f.submit '投稿する', class: 'btn btn-primary-red'%>
     </div>
