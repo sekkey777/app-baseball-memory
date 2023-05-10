@@ -164,3 +164,9 @@ body {
   --bs-pagination-active-bg: #3C899A;
   --bs-pagination-active-border-color: #3C899A;
 }
+
+// 画像表示
+.responsive-image {
+  max-width: 100%; /* イメージが親要素の幅に合わせて縮小されるようにします */
+  height: auto; /* イメージのアスペクト比を維持します */
+}
