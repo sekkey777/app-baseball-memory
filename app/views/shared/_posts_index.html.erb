@@ -11,7 +11,13 @@
           </div>
         </div>
         <div class='row mb-3'>
-          <div class='fs-3'><%= link_to post.title, my_post_path(post), class: 'link-text text-main' %></div>
+          <div class='fs-3'>
+            <% if defined?(my_posts) %>
+              <%= link_to post.title, my_post_path(post), class: 'link-text text-main' %>
+            <% else %>
+              <%= link_to post.title, post_path(post), class: 'link-text text-main' %>
+            <% end %>
+          </div>
         </div>
     </div>
     <div class='col-5'>

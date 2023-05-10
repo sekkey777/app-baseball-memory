@@ -3,5 +3,5 @@
     <h3 class='col-auto'><span class='display-5'>| </span>あなたの投稿一覧</h3>
   </div> 
   <%= render partial: 'shared/search_form_of_posts', locals: { q: @q, baseball_teams: @baseball_teams, baseball_parks: @baseball_parks, categories: @categories } %>
-  <%= render partial: 'shared/posts_index', locals: { posts: @posts } %>
+  <%= render partial: 'shared/posts_index', locals: { my_posts: true, posts: @posts } %>
 </div>
