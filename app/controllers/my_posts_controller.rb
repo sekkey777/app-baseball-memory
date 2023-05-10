@@ -27,20 +27,20 @@ class MyPostsController < ApplicationController
     flash[:danger] = "「#{@post.title}」投稿を削除しました"
     redirect_to my_posts_path
   end
-  
+
   private
 
-    def post_params
-      params.require(:post).permit(:title, :content, :baseball_team_id, :baseball_park_id, :category_id)
-    end
+  def post_params
+    params.require(:post).permit(:title, :content, :baseball_team_id, :baseball_park_id, :category_id)
+  end
 
-    def set_my_post
-      @post = current_user.posts.find(params[:id])
-    end
+  def set_my_post
+    @post = current_user.posts.find(params[:id])
+  end
 
-    def set_select_values
-      @categories = Category.all
-      @baseball_parks = BaseballPark.all
-      @baseball_teams = BaseballTeam.all
-    end
+  def set_select_values
+    @categories = Category.all
+    @baseball_parks = BaseballPark.all
+    @baseball_teams = BaseballTeam.all
+  end
 end
