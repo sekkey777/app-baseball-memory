@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     if @user.save
       log_in @user
       flash[:success] = 'アカウントを登録しました。'
-      redirect_to user_path(@user)
+      redirect_to posts_path
     else
       render 'new'
     end
