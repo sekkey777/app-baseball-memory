@@ -1,0 +1,35 @@
+<div class='container shadow-sm w-50 p-5 text-main bg-sub-color-gray my-5'>
+  <div class='row'>
+    <div class='row mb-3'>
+      <div class='col-1 fs-1'>
+        <i class="bi bi-person-circle"></i>
+      </div>
+      <div class='col-11 fs-4 '>
+        <div><%= post.user.name %></div>
+        <div><%= post.updated_at %></div>
+      </div>
+    </div>
+    <div class='row mb-3'>
+      <div class='fs-3'><%= post.title %></div>
+    </div>
+    <div class='row mb-5'>
+      <div><%= post.content %></div>
+    </div>
+    <div class='d-flex justify-content-center mb-5'>
+      <%= image_tag post.photo.variant(resize_to_limit: [nil, 400]), class: 'responsive-image' if post.photo.attached? %>
+    </div>
+    <div>
+      <span class='me-1'><i class="bi bi-heart text-main-red fs-4"></i></span>
+      <span class='me-1'><i class="bi bi-hash"></i><%= post.baseball_team.name %></span>
+      <span class='me-1'><i class="bi bi-hash"></i><%= post.baseball_park.name %></span>
+      <span class='me-1'><i class="bi bi-hash"></i><%= post.category.name %></span>
+    </div>
+    <% if defined?(my_posts) %>
+      <div class='row mx-auto my-3'>
+        <%= link_to "一覧に戻る", my_posts_path, class: 'btn btn-primary-gray col-4' %>
+        <%= link_to "変更する", edit_my_post_path(@post), class: 'btn btn-primary-green col-4' %>
+        <%= link_to "削除する", my_post_path(@post), method: :delete, class: 'btn btn-primary-red col-4' %>
+      </div>
+    <% end %>
+  </div>
+</div>

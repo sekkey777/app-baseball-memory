@@ -24,55 +24,7 @@
     <div class='mb-5'> 
       <h3 class='col-auto'><span class='display-5'>| </span>投稿一覧</h3>
     </div> 
-    <%= search_form_for @q do |f| %>
-      <div class='container w-75'>
-        <div class='row mb-5'>
-          <div class='col-sm-3'><%= f.label :title_cont, 'タイトル', class: 'col-form-label' %></div>
-          <div class='col-sm-9'><%= f.search_field :title_cont, placeholder: 'キーワードを入力してください', class: 'form-control' %></div>
-        </div>
-        <div class='row mb-5'>
-          <div class='col-sm-3'><%= f.label :baseball_team_id_eq, 'チーム', class: 'col-form-label' %></div>
-          <div class='col-sm-9'><%= f.collection_select :baseball_team_id_eq, @baseball_teams, :id, :name, {:include_blank => true}, class: 'form-select' %></div>
-        </div>
-        <div class='row mb-5'>
-          <div class='col-sm-3'><%= f.label :baseball_park_id_eq, '球場', class: 'col-form-label' %></div>
-          <div class='col-sm-9'><%= f.collection_select :baseball_park_id_eq, @baseball_parks, :id, :name, {:include_blank => true}, class: 'form-select' %></div>
-        </div>
-        <div class='row mb-5'>
-          <div class='col-sm-3'><%= f.label :category_id_eq, 'カテゴリー', class: 'col-form-label' %></div>
-          <div class='col-sm-9'><%= f.collection_select :category_id_eq, @categories, :id, :name, {:include_blank => true}, class: 'form-select' %></div>
-        </div>
-        <div class='d-grid col-12 mx-auto mb-5'>
-          <%= f.submit '検索', class: 'btn btn-primary-green'%>
-        </div>
-      </div>
-    <% end %>
-    <% @posts.each do |post| %>
-      <div class='container row mb-5 shadow-sm p-4'>
-        <div class='col-7'>
-            <div class='row mb-3'>
-              <div class='col-1 fs-1'>
-                <i class="bi bi-person-circle"></i>
-              </div>
-              <div class='col-11 fs-4 '>
-                <div><%= post.user.name %></div>
-                <div><%= post.updated_at %></div>
-              </div>
-            </div>
-            <div class='row mb-3'>
-              <div class='fs-3'><%= link_to post.title, post_path(post), class: 'link-text text-main' %></div>
-            </div>
-            <div>
-              <span class='me-1'><i class="bi bi-heart text-main-red fs-4"></i></span>
-              <span class='me-1'><i class="bi bi-hash"></i><%= post.baseball_team.name %></span>
-              <span class='me-1'><i class="bi bi-hash"></i><%= post.baseball_park.name %></span>
-              <span class='me-1'><i class="bi bi-hash"></i><%= post.category.name %></span>
-            </div>
-        </div>
-        <div class='col-5 bg-secondary'>
-        </div>
-      </div>
-    <% end %>
-    <%= paginate @posts, theme: 'bootstrap-5' %>
+    <%= render partial: 'shared/search_form_of_posts', locals: { q: @q, baseball_teams: @baseball_teams, baseball_parks: @baseball_parks, categories: @categories } %>
+    <%= render partial: 'shared/posts_index', locals: { posts: @posts } %>
   </div>
 </div>
