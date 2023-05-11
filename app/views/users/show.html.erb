@@ -1,23 +1,21 @@
-<h1 class='text-main'>Users#show</h1>
-
-<div class='container shadow-sm w-50 p-5 text-main bg-sub-color-gray'>
-  <div class='mb-5'> 
-    <h3 class='col-auto'><span class='display-5'>| </span>アカウント登録</h3>
+<div class='container shadow-sm w-50 p-5 text-main bg-sub-color-gray my-5'>
+  <div class='mb-5'>
+    <h3 class='col-auto'><span class='display-5'>| </span>アカウント情報</h3>
   </div> 
 
-    <div class='row mb-5'>
-      <div class='col-sm-3'>ユーザー名</div>
-      <div class='col-sm-9'><%= @user.name %></div>
-    </div>
-    <div class='row mb-5'>
-      <div class='col-sm-3'>メールアドレス</div>
-      <div class='col-sm-9'><%= @user.email %></div>
-    </div>
-    <div class='row mb-5'>
-      <div class='col-sm-3'>パスワード</div>
-      <div class='col-sm-9'>xxxxxxxx</div>
-    </div>
-    <div class='d-grid col-12 mx-auto'>
-      <%= link_to "変更する　＞", edit_user_path(@user), class: 'btn btn-primary-green' %>
-    </div>
+  <div class='row mb-5'>
+    <div class='col-sm-3'>ユーザー名</div>
+    <div class='col-sm-9'><%= @user.name %></div>
+  </div>
+  <div class='row mb-5'>
+    <div class='col-sm-3'>メールアドレス</div>
+    <div class='col-sm-9'><%= @user.email %></div>
+  </div>
+  <div class='row mb-5'>
+    <div class='col-sm-3'>パスワード</div>
+    <div class='col-sm-9'>xxxxxxxx</div>
+  </div>
+  <div class='d-grid col-12 mx-auto'>
+    <%= link_to "変更する　＞", edit_user_path(@user), class: 'btn btn-primary-green' %>
+  </div>
 </div>

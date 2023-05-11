@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  skip_before_action :login_required, only: [ :new, :create]
+
   def new
     @user = User.new
   end
@@ -8,7 +10,7 @@ class UsersController < ApplicationController
     if @user.save
       log_in @user
       flash[:success] = 'アカウントを登録しました。'
-      redirect_to user_path(@user)
+      redirect_to posts_path
     else
       render 'new'
     end
@@ -28,7 +30,7 @@ class UsersController < ApplicationController
       flash[:success] = 'ユーザー情報を更新しました'
       redirect_to user_path(@user)
     else
-      render edit_user_path
+      render 'edit'
     end
   end
 
