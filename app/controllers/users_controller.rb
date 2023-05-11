@@ -30,7 +30,7 @@ class UsersController < ApplicationController
       flash[:success] = 'ユーザー情報を更新しました'
       redirect_to user_path(@user)
     else
-      render edit_user_path
+      render 'edit'
     end
   end
 
