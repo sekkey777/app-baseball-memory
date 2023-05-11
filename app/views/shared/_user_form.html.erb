@@ -1,0 +1,29 @@
+<%= form_with(model: user, local: true) do |f| %>
+  <%= render 'shared/error_messages'%>
+  <div class='row mb-5'>
+    <div class='col-sm-3'><%= f.label :name, 'ユーザー名', class: 'col-form-label' %></div>
+    <div class='col-sm-9'><%= f.text_field :name, class: 'form-control' %></div>
+  </div>
+  <div class='row mb-5'>
+    <div class='col-sm-3'><%= f.label :email, 'メールアドレス', class: 'col-form-label' %></div>
+    <div class='col-sm-9'><%= f.text_field :email, class: 'form-control' %></div>
+  </div>
+  <div class='row mb-5'>
+    <div class='col-sm-3'><%= f.label :password, 'パスワード', class: 'col-form-label' %></div>
+    <div class='col-sm-9'><%= f.password_field :password, class: 'form-control' %></div>
+  </div>
+  <div class='row mb-5'>
+    <div class='col-sm-3'><%= f.label :password_confirmation, 'パスワード（確認）', class: 'col-form-label' %></div>
+    <div class='col-sm-9'><%= f.password_field :password_confirmation, class: 'form-control' %></div>
+  </div>
+  <% if defined?(new_user) %>
+    <div class='d-grid col-12 mx-auto mb-3'>
+      <%= f.submit '新規登録する', class: 'btn btn-primary-red'%>
+    </div>
+  <% else %>
+    <div class='row mx-auto'>
+      <%= link_to "＜　戻る", user_path(@user), class: 'btn btn-primary-gray col-sm-6' %>
+      <%= f.submit '更新', class: 'btn btn-primary-red col-sm-6'%>
+    </div>
+  <% end %>
+<% end %>
