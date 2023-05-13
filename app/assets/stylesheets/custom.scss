@@ -115,22 +115,48 @@ body {
 // テキスト
 .text-main {
   color: $primary-color-green;
+  // スマートフォン用のテキストサイズ
+  @media (max-width: 576px) {
+    font-size: 14px;
+  }
+}
+
+.text-user-name {
+  font-size: 25px;
+  // スマートフォン用のテキストサイズ
+  @media (max-width: 576px) {
+    font-size: 18px;
+  }
 }
 
 .text-main-red {
   color: $primary-color-red;
+  // スマートフォン用のテキストサイズ
+  @media (max-width: 576px) {
+    font-size: 14px;
+  }
+
 }
 
 .top-page-title {
   font-family: 'Rowdies', cursive;
   color: $primary-color-red;
   font-size: 100px;
+  // スマートフォン用のテキストサイズ
+  @media (max-width: 576px) {
+    font-size: 14px;
+  }
+
 }
 
 .top-page-sub-text {
   font-family: 'Rowdies', cursive;
   font-size: 30px;
   font-weight: bold;
+  // スマートフォン用のテキストサイズ
+  @media (max-width: 576px) {
+    font-size: 14px;
+  }
 }
 
 // リンク
