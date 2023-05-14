@@ -67,7 +67,17 @@ p '=========================== CREATE POSTS ==========================='
 
 4.times do |i|
   11.times do |j|
-    Post.create(title: "#{j+1}番目の投稿です。" * 5, content: 'テストです。' * 50, user_id: i, baseball_team_id: (j+1), baseball_park_id: (j+1), category_id: (i+1))
+    post = Post.create(
+      title: "#{j + 1}番目の投稿です。" * 5,
+      content: 'テストです。' * 50,
+      user_id: i,
+      baseball_team_id: (j + 1),
+      baseball_park_id: (j + 1),
+      category_id: (i + 1)
+    )
+    file_name = "image#{i * 11 + j + 1}.jpg"
+    file_path = Rails.root.join('app', 'assets', 'images', 'baseball-park.jpg')
+    post.photo.attach(io: File.open(file_path), filename: 'baseball-park-dummy-data.jpg', content_type: 'image/jpeg')
   end
 end
 
