@@ -32,6 +32,7 @@ class Post < ApplicationRecord
   belongs_to :baseball_team
   belongs_to :baseball_park
   belongs_to :category
+  has_many :likes
   has_one_attached :photo
 
   def self.ransackable_attributes(auth_object = nil)
