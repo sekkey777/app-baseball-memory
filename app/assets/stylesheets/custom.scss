@@ -36,7 +36,7 @@ html {
 }
 body {
   /* Margin bottom by footer height */
-  margin-bottom: 100px;
+  padding-bottom: 80px;
 }
 .footer {
   position: absolute;
@@ -45,10 +45,6 @@ body {
   /* Set the fixed height of the footer here */
   height: 60px;
   background-color: #f5f5f5;
-}
-
-.footer-margin {
-  margin-top: 100px;
 }
 
 // ボタン
