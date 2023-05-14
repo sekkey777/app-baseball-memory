@@ -81,4 +81,19 @@ p '=========================== CREATE POSTS ==========================='
   end
 end
 
+p '=========================== CREATE GAMES ==========================='
+
+4.times do |i|
+  10.times do |j|
+    post = Game.create(
+      date: "2023-05-#{j + 1}",
+      memo: "#{j + 1}番目の投稿です。" * 5,
+      home_team_id: (j + 1),
+      away_team_id: (j + 2),
+      baseball_park_id: (j + 1),
+      user_id: (i + 1)
+    )
+  end
+end
+
 p '=========================== END ==========================='
