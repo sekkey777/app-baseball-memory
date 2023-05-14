@@ -91,7 +91,9 @@ p '=========================== CREATE GAMES ==========================='
       home_team_id: (j + 1),
       away_team_id: (j + 2),
       baseball_park_id: (j + 1),
-      user_id: (i + 1)
+      user_id: j,
+      home_team_score: rand(16),
+      away_team_score: rand(16)
     )
   end
 end
