@@ -1,11 +1,15 @@
-<div class='container shadow-sm text-main bg-sub-color-gray w-sm-50 p-sm-5 my-sm-5'>
-  <div class='mb-5'>
-    <h3 class='col-auto'><span class='display-5'>| </span>アカウント登録</h3>
-  </div> 
+<div class='conteiner w-sm-50'>
+  <div class='row justify-content-center'>
+    <div class='col-md-6 shadow-sm text-main bg-sub-color-gray p-5 my-sm-5'>
+      <div class='mb-5'>
+        <h3 class='col-auto'><span class='display-5'>| </span>アカウント登録</h3>
+      </div> 
 
-  <%= render partial: 'shared/user_form', locals: { new_user: true, user: @user } %>
-  <div>
-    アカウントをお持ちの方は、<%= link_to 'ログイン', login_path, class: 'link-text' %>してください。<br>
-    アカウントを作成せずに利用する場合は<%= link_to 'ゲストログイン', new_user_path, class: 'link-text' %>をお使いください。
+      <%= render partial: 'shared/user_form', locals: { new_user: true, user: @user } %>
+      <div>
+        アカウントをお持ちの方は、<%= link_to 'ログイン', login_path, class: 'link-text' %>してください。<br>
+        アカウントを作成せずに利用する場合は<%= link_to 'ゲストログイン', new_user_path, class: 'link-text' %>をお使いください。
+      </div>
+    </div>
   </div>
 </div>

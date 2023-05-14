@@ -18,12 +18,12 @@
   </div>
   <% if defined?(new_user) %>
     <div class='d-grid col-12 mx-auto mb-3'>
-      <%= f.submit '新規登録する', class: 'btn btn-primary-red'%>
+      <%= f.submit '新規登録する', class: 'btn-primary-red'%>
     </div>
   <% else %>
     <div class='row mx-auto'>
-      <%= link_to "＜　戻る", user_path(@user), class: 'btn btn-primary-gray col-sm-6' %>
-      <%= f.submit '更新', class: 'btn btn-primary-red col-sm-6'%>
+      <%= link_to "＜　戻る", user_path(@user), class: 'btn-primary-gray col-sm-6' %>
+      <%= f.submit '更新', class: 'btn-primary-red col-sm-6'%>
     </div>
   <% end %>
 <% end %>

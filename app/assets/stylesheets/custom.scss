@@ -36,7 +36,7 @@ html {
 }
 body {
   /* Margin bottom by footer height */
-  margin-bottom: 100px;
+  padding-bottom: 80px;
 }
 .footer {
   position: absolute;
@@ -47,12 +47,9 @@ body {
   background-color: #f5f5f5;
 }
 
-.footer-margin {
-  margin-top: 100px;
-}
-
 // ボタン
 .btn-primary-red {
+  @extend .btn !optional;
   background-color: $primary-color-red;
   border: $primary-color-red;
   color: $third-color-gray;
@@ -63,6 +60,7 @@ body {
 }
 
 .btn-primary-gray {
+  @extend .btn !optional;
   background-color: $primary-color-gray;
   border: $primary-color-gray;
   color: $third-color-gray;
@@ -180,18 +178,23 @@ body {
 // kaminariのカスタマイズ
 .page-item {
   margin-right: 10px;
+  .page-link {
+    background-color: $second-color-green;
+    color: $third-color-gray;
+    @media (max-width: 576px) {
+      font-size: 10px;
+    }
+    &:hover, &:focus {
+      color: #3C899A ;
+      box-shadow: 0 0 0 0.25rem #89aeb8;
+    }
+  }
 }
 
-.pagination {
-  --bs-pagination-color: #FDFDFD;
-  --bs-pagination-bg: #B9CCD0;
-  --bs-pagination-border-color: #B9CCD0;
-  --bs-pagination-hover-color: #3C899A;
-  --bs-pagination-focus-color: #3C899A;
-  --bs-pagination-focus-box-shadow: 0 0 0 0.25rem #89aeb8;
-  --bs-pagination-active-color: #FDFDFD;
-  --bs-pagination-active-bg: #3C899A;
-  --bs-pagination-active-border-color: #3C899A;
+.page-item.active .page-link {
+  color: $third-color-gray !important;
+  background-color: $primary-color-green !important;
+  border-color: $primary-color-green !important;
 }
 
 // 画像表示
