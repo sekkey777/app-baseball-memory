@@ -28,4 +28,8 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Game < ApplicationRecord
+  belongs_to :away_team, class_name: 'BaseballTeam'
+  belongs_to :home_team, class_name: 'BaseballTeam'
+  belongs_to :baseball_park
+  belongs_to :user
 end
