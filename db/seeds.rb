@@ -76,7 +76,7 @@ p '=========================== CREATE POSTS ==========================='
       category_id: (i + 1)
     )
     file_name = "image#{i * 11 + j + 1}.jpg"
-    file_path = Rails.root.join('app', 'assets', 'images', 'baseball-park.jpg')
+    file_path = Rails.root.join('app', 'assets', 'images', 'baseball-park-dummy-data.jpg')
     post.photo.attach(io: File.open(file_path), filename: 'baseball-park-dummy-data.jpg', content_type: 'image/jpeg')
   end
 end
