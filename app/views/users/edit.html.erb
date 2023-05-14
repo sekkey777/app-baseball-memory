@@ -1,8 +1,11 @@
-<div class='container shadow-sm w-50 p-5 text-main bg-sub-color-gray my-5'>
-  <div class='mb-5'>
-    <h3 class='col-auto'><span class='display-5'>| </span>アカウント設定</h3>
-  </div> 
+<div class='conteiner w-sm-50'>
+  <div class='row justify-content-center'>
+    <div class='col-md-6 shadow-sm text-main bg-sub-color-gray p-5 my-sm-5'>
+      <div class='mb-5'>
+        <h3 class='col-auto'><span class='display-5'>| </span>アカウント設定</h3>
+      </div> 
 
-  <%= render partial: 'shared/user_form', locals: { user: @user } %>
+      <%= render partial: 'shared/user_form', locals: { user: @user } %>
+    </div>
+  </div>
 </div>
-

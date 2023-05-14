@@ -1,26 +1,26 @@
 <div>
   <div class='bg-image'>
     <div class='bg-color-clear h-100'>
-      <div class='container p-5'>
-        <div class='row text-center mb-5'>
-          <h1 class='top-page-title mb-5'>Baseball Memory</h1>
+      <div class='container p-3 p-sm-5'>
+        <div class='row text-center mb-3 mb-sm-5'>
+          <h1 class='top-page-title mb-3 mb-sm-5'>Baseball Memory</h1>
           <h4 class='top-page-sub-text'>
             プロ野球の観戦記録をつけることができます。<br>
             たくさん野球を観戦して自分の観戦記録や思い出をつけてをつけてみよう！
           </h4>
         </div>
-        <div class='row mx-auto mb-3 justify-content-evenly'>
-          <%= link_to "新規登録して観戦記録をつける", new_user_path, class: 'btn btn-primary-green-sizeup col-4' %>
+        <div class='row mx-auto mb-sm-3 justify-content-evenly'>
+          <%= link_to "新規登録して観戦記録をつける", new_user_path, class: 'btn btn-primary-green-sizeup col-sm-4 mb-1' %>
         </div>
-        <div class='row mx-auto mb-3 justify-content-evenly'>
-          <%= link_to "ログインはこちら", login_path, class: 'btn-second-green col-4' %>
-          <button class='btn-second-green col-4' type='submit'>ゲストログインはこちら</button>
+        <div class='row mx-auto mb-sm-3 justify-content-evenly'>
+          <%= link_to "ログインはこちら", login_path, class: 'btn-second-green col-sm-4 mb-1' %>
+          <%= link_to "ゲストログインはこちら", login_path, class: 'btn-second-green col-sm-4 mb-1' %>
         </div>
       </div>
     </div>
   </div>
 
-  <div class='container shadow-sm w-75 p-5 text-main bg-sub-color-gray my-5'>
+  <div class='container shadow-sm text-main bg-sub-color-gray w-sm-75 p-sm-5 my-sm-5'>
     <div class='mb-5'> 
       <h3 class='col-auto'><span class='display-5'>| </span>投稿一覧</h3>
     </div> 

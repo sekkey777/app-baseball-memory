@@ -1,41 +1,25 @@
-<header class="sticky-top">
-  <nav class='navbar navbar-expand-lg navbar-light bg-sub-color-gray shadow-sm'>
-    <div class='container-fluid'>
-      <ul class='navbar-nav me-auto mb-2 mb-lg-0'>
-        <li class='nav-item'>
-          <%= link_to( root_path, class: 'header-left-btn' ) do %>
-            <i class='bi bi-house-door-fill me-1'></i>
-            ホーム
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-sub-color-gray shadow-sm">
+    <div class="container-fluid">
+      <%= link_to( root_path, class: 'header-left-btn' ) do %><i class='bi bi-house-door-fill me-1'></i>ホーム<% end %>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class='nav-item'><%= link_to( posts_path, class: 'header-left-btn' ) do %><i class="bi bi-card-text me-2"></i>投稿<% end %></li>
+          <li class='nav-item'><%= link_to( new_user_path, class: 'header-left-btn' ) do %><i class="bi bi-trophy me-2"></i>ランキング<% end %></li>
+          <% if logged_in? %>
+            <li class='nav-item'><%= link_to( new_post_path, class: 'header-left-btn' ) do %><i class="bi bi-envelope-fill me-2"></i></i>思い出を投稿<% end %></li>
+            <li class='nav-item'><%= link_to( my_posts_path, class: 'header-left-btn' ) do %><i class="bi bi-memory me-2"></i>思い出一覧<% end %></li>
+            <li class='nav-item'><%= link_to( user_path(current_user), class: 'header-left-btn' ) do %><i class="bi bi-person-fill me-2"></i><%= current_user.name %><% end %></li>
+            <li class='nav-item'><%= link_to(logout_path, method: :delete, class: 'header-left-btn') do %><i class="bi bi-box-arrow-left me-2"></i>ログアウト<% end %></li>
+          <% else %>
+            <li class='nav-item'><%= link_to( login_path, class: 'header-left-btn' ) do %><i class="bi bi-box-arrow-in-right me-2"></i>ログイン<% end %></li>
+            <li class='nav-item'><%= link_to( login_path, class: 'header-left-btn' ) do %><i class="bi bi-box-arrow-in-right me-2"></i>ゲストログイン<% end %></li>
+            <li class='nav-item'><%= link_to( new_user_path, class: 'header-left-btn' ) do %><i class="bi bi-person-plus-fill me-2"></i>新規登録<% end %></li>
           <% end %>
-        </li>
-        <li class='nav-item'>
-          <%= link_to( posts_path, class: 'header-left-btn' ) do %>
-            <i class="bi bi-card-text me-1"></i>
-            投稿
-          <% end %>
-        </li>
-        <li class='nav-item'>
-          <%= link_to( new_user_path, class: 'header-left-btn' ) do %>
-            <i class="bi bi-trophy me-1"></i>
-            ランキング
-          <% end %>
-        </li>
-      </ul>
-      <div class='d-flex'>
-        <% if logged_in? %>
-          <%= link_to 'ログアウト', logout_path, method: :delete, class: 'btn btn-primary-green me-2' %>
-          <%= link_to '思い出を投稿', new_post_path, class: 'btn btn-primary-green me-2' %>
-          <%= link_to '思い出一覧', my_posts_path, class: 'btn btn-primary-green me-2' %>
-          <%= link_to '設定', user_path(current_user), class: 'btn btn-primary-green me-2' %>
-          <%= link_to( new_user_path, class: 'header-left-btn' ) do %>
-            <i class="bi bi-person-circle me-1"></i>
-            <%= current_user.name %>
-          <% end %>
-        <% else %>
-          <%= link_to 'ログイン', login_path, class: 'btn btn-primary-green me-2' %>
-          <button class='btn-primary-green me-2' type='submit'>ゲストログイン</button>
-          <%= link_to '新規登録', new_user_path, class: 'btn btn-primary-green' %>
-        <% end %>
+        </ul>
       </div>
     </div>
   </nav>
