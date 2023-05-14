@@ -28,9 +28,9 @@
         </div>
         <% if defined?(my_posts) %>
           <div class='row mx-auto my-sm-3'>
-            <%= link_to "一覧に戻る", my_posts_path, class: 'btn btn-primary-gray col-sm-4 mb-1' %>
-            <%= link_to "変更する", edit_my_post_path(@post), class: 'btn btn-primary-green col-sm-4 mb-1' %>
-            <%= link_to "削除する", my_post_path(@post), method: :delete, class: 'btn btn-primary-red col-sm-4 mb-1' %>
+            <%= link_to "一覧に戻る", my_posts_path, class: 'btn-primary-gray col-sm-4 mb-1' %>
+            <%= link_to "変更する", edit_my_post_path(@post), class: 'btn-primary-green col-sm-4 mb-1' %>
+            <%= link_to "削除する", my_post_path(@post), method: :delete, class: 'btn-primary-red col-sm-4 mb-1' %>
           </div>
         <% end %>
       </div>

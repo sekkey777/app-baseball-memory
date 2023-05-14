@@ -53,6 +53,7 @@ body {
 
 // ボタン
 .btn-primary-red {
+  @extend .btn !optional;
   background-color: $primary-color-red;
   border: $primary-color-red;
   color: $third-color-gray;
@@ -63,6 +64,7 @@ body {
 }
 
 .btn-primary-gray {
+  @extend .btn !optional;
   background-color: $primary-color-gray;
   border: $primary-color-gray;
   color: $third-color-gray;
