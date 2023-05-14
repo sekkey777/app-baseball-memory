@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     if user&.authenticate(params[:session][:password])
       log_in user
       flash[:success] = 'ログインしました。'
-      redirect_to user_path(user)
+      redirect_to posts_path
     else
       flash.now[:danger] = 'ログインに失敗しました。ユーザー名、またはパスワードが違います。'
       render 'new'
