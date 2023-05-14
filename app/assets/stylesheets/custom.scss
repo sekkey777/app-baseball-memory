@@ -181,6 +181,9 @@ body {
   .page-link {
     background-color: $second-color-green;
     color: $third-color-gray;
+    @media (max-width: 576px) {
+      font-size: 10px;
+    }
     &:hover, &:focus {
       color: #3C899A ;
       box-shadow: 0 0 0 0.25rem #89aeb8;
