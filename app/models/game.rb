@@ -3,7 +3,9 @@
 # Table name: games
 #
 #  id               :bigint           not null, primary key
+#  away_team_score  :integer
 #  date             :datetime         not null
+#  home_team_score  :integer
 #  memo             :text(65535)      not null
 #  photo            :string(255)
 #  created_at       :datetime         not null

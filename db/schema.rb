@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_14_132312) do
+ActiveRecord::Schema.define(version: 2023_05_14_140231) do
 
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -68,6 +68,8 @@ ActiveRecord::Schema.define(version: 2023_05_14_132312) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "home_team_score"
+    t.integer "away_team_score"
     t.index ["away_team_id"], name: "index_games_on_away_team_id"
     t.index ["baseball_park_id"], name: "index_games_on_baseball_park_id"
     t.index ["home_team_id"], name: "index_games_on_home_team_id"
