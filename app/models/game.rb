@@ -35,4 +35,45 @@ class Game < ApplicationRecord
   belongs_to :home_team, class_name: 'BaseballTeam'
   belongs_to :baseball_park
   belongs_to :user
+
+  def self.win_count
+    where(result: 'win').count
+  end
+
+  def self.lose_count
+    where(result: 'lose').count
+  end
+
+  def self.draw_count
+    where(result: 'draw').count
+  end
+
+  def self.total_count
+    count
+  end
+
+  def self.win_percentage
+    total_games = total_count.to_f
+    return 0 if total_games.zero?
+
+    (win_count / total_games * 100).round
+  end
+
+  def self.current_sequence
+    last_results = pluck(:result).reverse
+
+    sequence_type = nil
+    sequence_count = 0
+
+    last_results.each do |result|
+      if sequence_type.nil? || sequence_type == result
+        sequence_type = result
+        sequence_count += 1
+      else
+        break
+      end
+    end
+
+    [sequence_type, sequence_count]
+  end
 end

@@ -85,15 +85,26 @@ p '=========================== CREATE GAMES ==========================='
 
 4.times do |i|
   10.times do |j|
-    post = Game.create(
+    home_team_score = rand(16)
+    away_team_score = rand(16)
+    
+    result = if home_team_score > away_team_score
+               'win'
+             elsif home_team_score < away_team_score
+               'lose'
+             else
+               'draw'
+             end
+    Game.create(
       date: "2023-05-#{j + 1}",
       memo: "#{j + 1}番目の投稿です。" * 5,
       home_team_id: (j + 1),
       away_team_id: (j + 2),
       baseball_park_id: (j + 1),
       user_id: j,
-      home_team_score: rand(16),
-      away_team_score: rand(16)
+      home_team_score: home_team_score,
+      away_team_score: away_team_score,
+      result: result
     )
   end
 end

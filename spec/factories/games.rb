@@ -8,6 +8,7 @@
 #  home_team_score  :integer
 #  memo             :text(65535)      not null
 #  photo            :string(255)
+#  result           :string(255)
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #  away_team_id     :bigint           not null

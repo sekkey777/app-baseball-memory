@@ -3,9 +3,11 @@ $second-color-green: #B9CCD0;
 
 $primary-color-red: #9A3C64;
 $second-color-red: #DCC7D0;
+$third-color-red: #FFF8F8;
 
 $primary-color-bule: #3C469A;
 $second-color-blue: #B2B5D1;
+$third-color-blue: #F5F6FF;
 
 $primary-color-gray: #717171;
 $second-color-gray: #D7D7D7;
@@ -67,6 +69,17 @@ body {
   &:hover {
     background-color: $second-color-gray;
     color: $primary-color-gray;
+  }
+}
+
+.btn-primary-blue {
+  @extend .btn !optional;
+  background-color: $primary-color-bule;
+  border: $primary-color-bule;
+  color: $third-color-gray;
+  &:hover {
+    background-color: $second-color-blue;
+    color: $primary-color-bule;
   }
 }
 
@@ -201,4 +214,114 @@ body {
 .responsive-image {
   max-width: 100%; /* イメージが親要素の幅に合わせて縮小されるようにします */
   height: auto; /* イメージのアスペクト比を維持します */
+}
+
+// 観戦記録
+.game-win {
+  background-color: $primary-color-red;
+  border: $primary-color-red;
+  color: $third-color-gray;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.game-lose {
+  background-color: $primary-color-bule;
+  border: $primary-color-bule;
+  color: $third-color-gray;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.game-draw {
+  background-color: $primary-color-gray;
+  border: $primary-color-gray;
+  color: $third-color-gray;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.game-green {
+  background-color: $primary-color-green;
+  border: $primary-color-green;
+  color: $third-color-gray;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.win-line {
+  background-color: $third-color-gray;
+  border: $primary-color-red solid 2px;
+  color: $primary-color-red;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.lose-line {
+  background-color: $third-color-gray;
+  border: $primary-color-bule solid 2px;
+  color: $primary-color-bule;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.draw-line {
+  background-color: $third-color-gray;
+  border: $primary-color-gray solid 2px;
+  color: $primary-color-gray;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.green-line {
+  background-color: $third-color-gray;
+  border: $primary-color-green solid 2px;
+  color: $primary-color-green;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.win_percentage {
+  background-color: $third-color-red;
+  color: $primary-color-red;
+  font-size: 60px;
+  border-radius: 10px;
+  margin: 10px;
+  .number-size {
+    font-size: 100px;
+  }
+}
+
+.win-sequence {
+  @extend .win_percentage !optional;
+}
+
+.lose-sequence {
+  background-color: $third-color-blue;
+  color: $primary-color-bule;
+  font-size: 60px;
+  border-radius: 10px;
+  margin: 10px;
+  .number-size {
+    font-size: 100px;
+  }
+}
+
+.draw-sequence {
+  background-color: $third-color-gray;
+  color: $primary-color-gray;
+  font-size: 60px;
+  border-radius: 10px;
+  margin: 10px;
+  .number-size {
+    font-size: 100px;
+  }
 }
