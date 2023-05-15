@@ -11,4 +11,5 @@ Rails.application.routes.draw do
     resources :likes, only: [:create, :destroy]
   end
   resources :my_posts
+  resources :games
 end

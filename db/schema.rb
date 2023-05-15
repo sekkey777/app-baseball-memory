@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_14_093246) do
+ActiveRecord::Schema.define(version: 2023_05_14_155243) do
 
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -58,6 +58,25 @@ ActiveRecord::Schema.define(version: 2023_05_14_093246) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "games", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.datetime "date", null: false
+    t.text "memo", null: false
+    t.string "photo"
+    t.bigint "home_team_id", null: false
+    t.bigint "away_team_id", null: false
+    t.bigint "baseball_park_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "home_team_score"
+    t.integer "away_team_score"
+    t.string "result"
+    t.index ["away_team_id"], name: "index_games_on_away_team_id"
+    t.index ["baseball_park_id"], name: "index_games_on_baseball_park_id"
+    t.index ["home_team_id"], name: "index_games_on_home_team_id"
+    t.index ["user_id"], name: "index_games_on_user_id"
+  end
+
   create_table "likes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "user_id"
     t.integer "post_id"
@@ -92,6 +111,10 @@ ActiveRecord::Schema.define(version: 2023_05_14_093246) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "games", "baseball_parks"
+  add_foreign_key "games", "baseball_teams", column: "away_team_id"
+  add_foreign_key "games", "baseball_teams", column: "home_team_id"
+  add_foreign_key "games", "users"
   add_foreign_key "posts", "baseball_parks"
   add_foreign_key "posts", "baseball_teams"
   add_foreign_key "posts", "categories"

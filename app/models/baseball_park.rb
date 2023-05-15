@@ -9,4 +9,5 @@
 #
 class BaseballPark < ApplicationRecord
   has_one :post
+  has_many :game
 end
