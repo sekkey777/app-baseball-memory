@@ -12,8 +12,10 @@
           <% if logged_in? %>
             <li class='nav-item'><%= link_to( new_post_path, class: 'header-left-btn' ) do %><i class="bi bi-envelope-fill me-2"></i></i>思い出を投稿<% end %></li>
             <li class='nav-item'><%= link_to( my_posts_path, class: 'header-left-btn' ) do %><i class="bi bi-memory me-2"></i>思い出一覧<% end %></li>
+            <li class='nav-item'><%= link_to( new_game_path, class: 'header-left-btn' ) do %><i class="bi bi-card-checklist me-2"></i>観戦記録をつける<% end %></li>
+            <li class='nav-item'><%= link_to( games_path, class: 'header-left-btn' ) do %><i class="bi bi-list-nested me-2"></i>観戦記録一覧<% end %></li>
             <li class='nav-item'><%= link_to( user_path(current_user), class: 'header-left-btn' ) do %><i class="bi bi-person-fill me-2"></i><%= current_user.name %><% end %></li>
-            <li class='nav-item'><%= link_to(logout_path, method: :delete, class: 'header-left-btn') do %><i class="bi bi-box-arrow-left me-2"></i>ログアウト<% end %></li>
+            <li class='nav-item'><%= link_to( logout_path, method: :delete, class: 'header-left-btn' ) do %><i class="bi bi-box-arrow-left me-2"></i>ログアウト<% end %></li>
           <% else %>
             <li class='nav-item'><%= link_to( login_path, class: 'header-left-btn' ) do %><i class="bi bi-box-arrow-in-right me-2"></i>ログイン<% end %></li>
             <li class='nav-item'><%= link_to( login_path, class: 'header-left-btn' ) do %><i class="bi bi-box-arrow-in-right me-2"></i>ゲストログイン<% end %></li>
