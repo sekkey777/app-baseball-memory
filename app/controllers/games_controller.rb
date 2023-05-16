@@ -1,4 +1,6 @@
 class GamesController < ApplicationController
+  before_action :set_select_values, only: [:new, :edit]
+
   def new
     @game = Game.new
   end
@@ -8,7 +10,7 @@ class GamesController < ApplicationController
   end
 
   def create
-    @geme = Game.new(post_params.merge(user_id: current_user.id))
+    @game = Game.new(game_params.merge(user_id: current_user.id))
     if @game.save
       flash[:success] = '正常に記録しました'
       redirect_to games_path
@@ -24,6 +26,6 @@ class GamesController < ApplicationController
   private
 
   def game_params
-    params.require(:game).permit(:date, :memo, :home_team_id, :away_team_id, :baseball_park_id, :home_team_score, :away_team_score)
+    params.require(:game).permit(:date, :memo, :home_team_id, :away_team_id, :baseball_park_id, :home_team_score, :away_team_score, :photo)
   end
 end
