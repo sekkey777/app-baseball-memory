@@ -343,3 +343,23 @@ body {
     }
   }
 }
+
+.btn-win {
+  @extend .btn-primary-red !optional;
+  width: 50px;
+}
+
+.btn-lose {
+  @extend .btn-primary-blue !optional;
+  width: 50px;
+}
+
+.btn-draw {
+  @extend .btn-primary-gray !optional;
+  width: 50px;
+}
+
+.btn-green {
+  @extend .btn-primary-green !optional;
+  width: 50px;
+}
