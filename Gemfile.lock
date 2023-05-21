@@ -277,6 +277,8 @@ GEM
       sprockets-rails
       tilt
     semantic_range (3.0.0)
+    simple_calendar (2.4.3)
+      rails (>= 3.0)
     solargraph (0.48.0)
       backport (~> 1.2)
       benchmark
@@ -351,6 +353,7 @@ DEPENDENCIES
   rspec-rails
   rubocop-airbnb
   sass-rails (>= 6)
+  simple_calendar (~> 2.4)
   solargraph
   spring
   turbolinks (~> 5)
