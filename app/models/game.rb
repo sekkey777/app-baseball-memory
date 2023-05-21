@@ -31,10 +31,13 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Game < ApplicationRecord
+  before_save :set_result
+
   belongs_to :away_team, class_name: 'BaseballTeam'
   belongs_to :home_team, class_name: 'BaseballTeam'
   belongs_to :baseball_park
   belongs_to :user
+  has_many_attached :photos
 
   def self.win_count
     where(result: 'win').count
@@ -75,5 +78,32 @@ class Game < ApplicationRecord
     end
 
     [sequence_type, sequence_count]
+  end
+
+  def away_result
+    case result
+    when "win"
+      "lose"
+    when "lose"
+      "win"
+    when "draw"
+      "draw"
+    else
+      "unknown"
+    end
+  end
+
+  private
+
+  def set_result
+    return if home_team_score.nil? || away_team_score.nil?
+
+    if home_team_score > away_team_score
+      self.result = 'win'
+    elsif home_team_score < away_team_score
+      self.result = 'lose'
+    else
+      self.result = 'draw'
+    end
   end
 end

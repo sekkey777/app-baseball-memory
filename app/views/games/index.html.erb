@@ -70,9 +70,9 @@
                 <td><%= game.baseball_park.name %></td>
                 <td>
                   <% if game.result %>
-                    <span class="game-<%= game.result %>"><%= game.result %></span>
+                    <%= link_to game.result, game_path(game), class: "btn-#{game.result}" %>
                   <% else %>
-                    <%= link_to('結果を入力', games_path) %>
+                    <%= link_to '＞', game_path(game), class: "btn-green" %>
                   <% end %>
                 </td>
                 <td><%= game.home_team_score %> - <%= game.away_team_score %></td>

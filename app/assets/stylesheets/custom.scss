@@ -343,3 +343,74 @@ body {
     }
   }
 }
+
+.btn-win {
+  @extend .btn-primary-red !optional;
+  width: 50px;
+}
+
+.btn-lose {
+  @extend .btn-primary-blue !optional;
+  width: 50px;
+}
+
+.btn-draw {
+  @extend .btn-primary-gray !optional;
+  width: 50px;
+}
+
+.btn-green {
+  @extend .btn-primary-green !optional;
+  width: 50px;
+}
+
+.win-team {
+  background-color: $third-color-red;
+  color: $primary-color-red;
+  font-size: 23px;
+  border-radius: 10px;
+  margin: 10px;
+  @media (max-width: 576px) {
+    font-size: 15px;
+  }
+  .number-size {
+    font-size: 100px;
+    @media (max-width: 576px) {
+      font-size: 15px;
+    }
+  }
+}
+
+.lose-team {
+  background-color: $third-color-blue;
+  color: $primary-color-bule;
+  font-size: 23px;
+  border-radius: 10px;
+  margin: 10px;
+  @media (max-width: 576px) {
+    font-size: 15px;
+  }
+  .number-size {
+    font-size: 100px;
+    @media (max-width: 576px) {
+      font-size: 15px;
+    }
+  }
+}
+
+.draw-team {
+  background-color: $third-color-gray;
+  color: $primary-color-gray;
+  font-size: 23px;
+  border-radius: 10px;
+  margin: 10px;
+  @media (max-width: 576px) {
+    font-size: 15px;
+  }
+  .number-size {
+    font-size: 100px;
+    @media (max-width: 576px) {
+      font-size: 15px;
+    }
+  }
+}
