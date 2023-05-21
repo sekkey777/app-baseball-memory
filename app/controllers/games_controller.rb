@@ -40,15 +40,15 @@ class GamesController < ApplicationController
     flash[:success] = "「#{@game.home_team.name}」 vs 「#{@game.away_team.name}」の観戦記録を削除しました"
     redirect_to games_path
   end
-  
+
   private
 
   def game_params
-    params.require(:game).permit(:date, :memo, :home_team_id, :away_team_id, :baseball_park_id, :home_team_score, :away_team_score, :photo)
+    params.require(:game).permit(:date, :memo, :home_team_id, :away_team_id, :baseball_park_id, :home_team_score,
+:away_team_score, :photo)
   end
 
   def set_game
     @game = current_user.games.find(params[:id])
   end
-
 end
