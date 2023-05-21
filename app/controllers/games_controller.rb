@@ -22,6 +22,27 @@ class GamesController < ApplicationController
   def show
     @game = Game.find(params[:id])
   end
+
+  def edit
+    @game = Game.find(params[:id])
+  end
+
+  def update
+    @game = Game.find(params[:id])
+    if @game.update(game_params)
+      flash[:success] = '投稿内容を更新しました'
+      redirect_to games_path
+    else
+      render 'new'
+    end
+  end
+
+  def destroy
+    @game = Game.find(params[:id])
+    @game.destroy
+    flash[:success] = "「#{@game.home_team.name}」 vs 「#{@game.away_team.name}」の観戦記録を削除しました"
+    redirect_to games_path
+  end
   
   private
 
