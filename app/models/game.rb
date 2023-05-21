@@ -96,7 +96,9 @@ class Game < ApplicationRecord
   private
 
   def set_result
-    return if home_team_score.nil? || away_team_score.nil?
+    if home_team_score.nil? || away_team_score.nil?
+      return
+    end
 
     if home_team_score > away_team_score
       self.result = 'win'
