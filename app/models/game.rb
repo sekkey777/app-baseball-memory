@@ -80,6 +80,19 @@ class Game < ApplicationRecord
     [sequence_type, sequence_count]
   end
 
+  def away_result
+    case result
+    when "win"
+      "lose"
+    when "lose"
+      "win"
+    when "draw"
+      "draw"
+    else
+      "unknown"
+    end
+  end
+
   private
 
   def set_result
