@@ -84,3 +84,26 @@
     </div>
   </div>
 </div>
+
+<div class='conteiner'>
+  <div class='row justify-content-center'>
+    <div class='col-sm-10 shadow-sm text-main bg-sub-color-gray p-5 my-sm-5'>
+      <div class='mb-sm-5'> 
+        <h3 class='col-auto'><span class='display-5'>| </span>観戦記録</h3>
+      </div>
+      <%= month_calendar do |date| %>
+        <%= date.day %>
+
+        <% games_on_date = @games.select { |game| game.date.to_date == date } %>
+        <% games_on_date.each do |game| %>
+          <% if game.result %>
+            <%= link_to game.result, game_path(game), class: "btn-#{game.result}" %>
+          <% else %>
+            <%= link_to '＞', game_path(game), class: "btn-green" %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+

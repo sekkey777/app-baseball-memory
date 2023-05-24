@@ -1,6 +1,7 @@
 class GamesController < ApplicationController
   before_action :set_game, only: [:show, :edit, :update, :destroy]
   before_action :set_select_values, only: [:new, :edit]
+  before_action :set_beginning_of_week, only: [:index]
 
   def new
     @game = Game.new
@@ -50,5 +51,9 @@ class GamesController < ApplicationController
 
   def set_game
     @game = current_user.games.find(params[:id])
+  end
+
+  def set_beginning_of_week
+    Date.beginning_of_week = :sunday
   end
 end
