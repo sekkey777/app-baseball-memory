@@ -1,6 +1,6 @@
 class GamesController < ApplicationController
   before_action :set_game, only: [:show, :edit, :update, :destroy]
-  before_action :set_select_values, only: [:new, :edit]
+  before_action :set_select_values, only: [:new, :edit, :create, :update, :destroy]
   before_action :set_beginning_of_week, only: [:index]
 
   def new
@@ -17,6 +17,7 @@ class GamesController < ApplicationController
       flash[:success] = '正常に記録しました'
       redirect_to games_path
     else
+      flash.now[:danger] = '記録に失敗しました。'
       render new_game_path
     end
   end
@@ -32,7 +33,8 @@ class GamesController < ApplicationController
       flash[:success] = '投稿内容を更新しました'
       redirect_to games_path
     else
-      render 'new'
+      flash.now[:danger] = '更新に失敗しました。'
+      render 'edit'
     end
   end
 
