@@ -4,6 +4,17 @@
   </div> 
 
   <%= form_with(model: @post, local: true) do |f| %>
+    <% if @post.errors.any? %>
+      <div id="error_explanation">
+        <div class="alert alert-danger">
+          The form contains <%= pluralize(@post.errors.count, "error") %>.
+        </div>
+        <ul>
+          <% @post.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li> <% end %>
+        </ul>
+      </div>
+    <% end %>
     <div class='row mb-5'>
       <div class='col-sm-3'><%= f.label :title, 'タイトル', class: 'col-form-label' %></div>
       <div class='col-sm-9'><%= f.text_field :title, class: 'form-control' %></div>

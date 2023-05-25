@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   skip_before_action :login_required
-  before_action :set_select_values, only: [:top, :index, :new, :edit]
+  before_action :set_select_values, only: [:top, :index, :new, :create, :edit]
 
   def top
     @q = Post.ransack(params[:q])
@@ -22,7 +22,8 @@ class PostsController < ApplicationController
       flash[:success] = "「#{@post.title}」を投稿しました"
       redirect_to posts_path
     else
-      render new_post_path
+      flash.now[:danger] = '投稿に失敗しました。'
+      render 'new'
     end
   end
 
