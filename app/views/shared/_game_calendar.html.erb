@@ -1,0 +1,11 @@
+<%= month_calendar do |date| %>
+  <%= date.day %>
+  <% games_on_date = games.select { |game| game.date.to_date == date } %>
+  <% games_on_date.each do |game| %>
+    <% if game.result %>
+      <%= link_to game.result, game_path(game), class: "btn-#{game.result}" %>
+    <% else %>
+      <%= link_to '＞', game_path(game), class: "btn-green" %>
+    <% end %>
+  <% end %>
+<% end %>

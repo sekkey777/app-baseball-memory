@@ -414,3 +414,64 @@ body {
     }
   }
 }
+
+// カレンダー
+.calendar-heading {
+  .btn {
+    @extend .btn-primary-green !optional;
+  }
+  .btn-pale {
+    @extend .btn !optional;
+    background-color: $second-color-green;
+    border: $second-color-green;
+    color: $third-color-gray;
+    width: 100%;
+    &:hover,
+    &:active {
+      background-color: $second-color-green !important;
+      color: $primary-color-green !important;
+    }
+  }
+}
+
+// カレンダー 当月以外の日付を非表示
+// .prev-month {
+//   display: none;
+// }
+.next-month {
+  display: none;
+}
+
+.simple-calendar .day {
+  text-align: center;
+}
+
+// カレンダー 土日の日付色を変更
+.wday-0 {
+  color: $primary-color-red;
+  background-color: $third-color-red !important;
+}
+.wday-6 {
+  color: $primary-color-bule;
+  background-color: $third-color-blue !important;
+} 
+
+// カレンダー 土日の文字色を変更
+.simple-calendar th:first-child {
+  text-align: center;
+  color: $primary-color-red;
+  background-color: $third-color-red;
+  border-radius: 5px;
+}
+.simple-calendar th:last-child {
+  text-align: center;
+  color: $primary-color-bule;
+  background-color: $third-color-blue;
+}
+
+// カレンダー 平日の文字背景色を変更
+.simple-calendar th:nth-child(n+2):nth-child(-n+6) {
+  text-align: center;
+  background-color: rgb(243, 243, 243);
+}
+

@@ -49,37 +49,9 @@
       <div class='mb-sm-5'> 
         <h3 class='col-auto'><span class='display-5'>| </span>観戦記録</h3>
       </div>
-      <div class="table-responsive">
-        <table class="table text-nowrap">
-          <thead>
-            <tr>
-              <th>試合日</th>
-              <th>応援チーム</th>
-              <th>対戦チーム</th>
-              <th>観戦球場</th>
-              <th>試合結果</th>
-              <th>スコア</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @games.each do |game| %>
-              <tr class='align-middle'>
-                <td><%= game.date %></td>
-                <td><%= game.home_team.name %></td>
-                <td><%= game.away_team.name %></td>
-                <td><%= game.baseball_park.name %></td>
-                <td>
-                  <% if game.result %>
-                    <%= link_to game.result, game_path(game), class: "btn-#{game.result}" %>
-                  <% else %>
-                    <%= link_to '＞', game_path(game), class: "btn-green" %>
-                  <% end %>
-                </td>
-                <td><%= game.home_team_score %> - <%= game.away_team_score %></td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
+      <div>
+        <%= render partial: 'shared/game_list', locals: { games: @games } %>
+        <%= render partial: 'shared/game_calendar', locals: { games: @games } %>
       </div>
     </div>
   </div>
