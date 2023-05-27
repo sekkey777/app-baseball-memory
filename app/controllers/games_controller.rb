@@ -8,7 +8,7 @@ class GamesController < ApplicationController
   end
 
   def index
-    @games = current_user.games
+    @games = current_user.games.includes(:user, :baseball_park, :away_team, :home_team).with_attached_photos
   end
 
   def create
