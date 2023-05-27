@@ -20,11 +20,11 @@ class User < ApplicationRecord
 
   before_save { self.email = email.downcase }
 
-  validates :name, presence: true, length: { in: 8..20, allow_blank: true }, uniqueness: { case_sensitive: false }
+  validates :name, presence: true, length: { in: 8..20, allow_blank: true }, uniqueness: { case_sensitive: false }, unless: :guest?
   validates :email, presence: true, length: { maximum: 255, allow_blank: true }, format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
   validates :password, presence: true, length: { minimum: 8, allow_blank: true }, allow_nil: true,
-                       format: { with: VALID_PASSWORD_REGEX }
+                       format: { with: VALID_PASSWORD_REGEX }, unless: :guest?
 
   has_secure_password
 
@@ -34,5 +34,9 @@ class User < ApplicationRecord
 
   def liked_by?(post_id)
     likes.where(post_id: post_id).exists?
+  end
+
+  def guest?
+    name == "guest_user"
   end
 end
