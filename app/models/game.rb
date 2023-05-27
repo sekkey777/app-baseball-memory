@@ -39,6 +39,13 @@ class Game < ApplicationRecord
   belongs_to :user
   has_many_attached :photos
 
+  validates :home_team_id, presence: true
+  validates :away_team_id, presence: true
+  validates :baseball_park_id, presence: true
+  validates :date, presence: true
+  validates :memo, length: { maximum: 1000 }
+  validates :user_id, presence: true
+
   def self.win_count
     where(result: 'win').count
   end
