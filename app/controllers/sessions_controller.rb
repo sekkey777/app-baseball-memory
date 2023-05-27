@@ -5,14 +5,27 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(name: params[:session][:name])
-    if user&.authenticate(params[:session][:password])
+    if params[:guest_login].present?
+      # ゲストログイン処理を実行
+      user = User.find_or_create_by(email: "guest@appbaseballmemory.com") do |user|
+        user.password = SecureRandom.urlsafe_base64
+        user.name = "ゲストユーザー"
+      end
+      user.save
       log_in user
-      flash[:success] = 'ログインしました。'
+      flash[:success] = "ゲストユーザーとしてログインしました"
       redirect_to posts_path
     else
-      flash.now[:danger] = 'ログインに失敗しました。ユーザー名、またはパスワードが違います。'
-      render 'new'
+      # 通常のユーザーログインの処理を実行
+      user = User.find_by(name: params[:session][:name])
+      if user&.authenticate(params[:session][:password])
+        log_in user
+        flash[:success] = 'ログインしました。'
+        redirect_to posts_path
+      else
+        flash.now[:danger] = 'ログインに失敗しました。ユーザー名、またはパスワードが違います。'
+        render 'new'
+      end
     end
   end
 
