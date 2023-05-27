@@ -9,11 +9,12 @@ class SessionsController < ApplicationController
       # ゲストログイン処理を実行
       user = User.find_or_create_by(email: "guest@appbaseballmemory.com") do |user|
         user.password = SecureRandom.urlsafe_base64
-        user.name = "ゲストユーザー"
+        user.name = "guest_user"
       end
       user.save
       log_in user
       flash[:success] = "ゲストユーザーとしてログインしました"
+      binding.pry
       redirect_to posts_path
     else
       # 通常のユーザーログインの処理を実行
