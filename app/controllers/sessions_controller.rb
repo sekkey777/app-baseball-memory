@@ -7,14 +7,12 @@ class SessionsController < ApplicationController
   def create
     if params[:guest_login].present?
       # ゲストログイン処理を実行
-      user = User.find_or_create_by(email: "guest@appbaseballmemory.com") do |user|
+      user = User.find_or_create_by(name: "guest_user") do |user|
         user.password = SecureRandom.urlsafe_base64
-        user.name = "guest_user"
       end
       user.save
       log_in user
       flash[:success] = "ゲストユーザーとしてログインしました"
-      binding.pry
       redirect_to posts_path
     else
       # 通常のユーザーログインの処理を実行
