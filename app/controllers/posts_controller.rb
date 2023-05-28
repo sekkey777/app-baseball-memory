@@ -3,12 +3,12 @@ class PostsController < ApplicationController
   before_action :set_select_values, only: [:top, :index, :new, :create, :edit]
 
   def top
-    @q = Post.ransack(params[:q])
+    @q = Post.with_attached_photo.ransack(params[:q])
     @posts = @q.result.page(params[:page])
   end
 
   def index
-    @q = Post.ransack(params[:q])
+    @q = Post.eager_load(:user, :baseball_team, :baseball_park, :category, :likes).with_attached_photo.ransack(params[:q])
     @posts = @q.result.page(params[:page])
   end
 
