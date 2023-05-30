@@ -3,7 +3,8 @@ class MyPostsController < ApplicationController
   before_action :set_select_values, only: [:index, :edit, :update, :destroy]
 
   def index
-    @q = current_user.posts.eager_load(:user, :baseball_team, :baseball_park, :category, :likes).with_attached_photo.ransack(params[:q])
+    @q = current_user.posts.eager_load(:user, :baseball_team, :baseball_park, :category,
+:likes).with_attached_photo.ransack(params[:q])
     @posts = @q.result.page(params[:page])
   end
 

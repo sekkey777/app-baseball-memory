@@ -29,7 +29,6 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-
   describe 'Postモデルのアソシエーションが適切に設定されていること' do
     it { should belong_to(:user) }
     it { should belong_to(:baseball_team) }
@@ -54,6 +53,8 @@ RSpec.describe Post, type: :model do
   end
 
   describe 'Postモデルの検索条件が適切に設定されていること' do
-    it { expect(described_class.ransackable_attributes(nil)).to eq(["baseball_park_id", "baseball_team_id", "category_id", "title"]) }
+    it {
+      expect(described_class.ransackable_attributes(nil)).to eq(['baseball_park_id', 'baseball_team_id', 'category_id', 'title'])
+    }
   end
 end
