@@ -32,7 +32,13 @@
 #
 FactoryBot.define do
   factory :game do
-    date { "2023-05-14 13:23:12" }
-    memo { "MyText" }
+    association :user
+    date { DateTime.now }
+    association :baseball_park
+    memo { 'テスト' }
+    association :home_team, factory: :baseball_team
+    association :away_team, factory: :baseball_team
+    home_team_score { 4 }
+    away_team_score { 2 }
   end
 end
