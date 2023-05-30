@@ -4,7 +4,6 @@
       <div class='mb-5'>
         <h3 class='col-auto'><span class='display-5'>| </span>アカウント情報</h3>
       </div> 
-
       <div class='row mb-5'>
         <div class='col-sm-3'>ユーザー名</div>
         <div class='col-sm-9'><%= @user.name %></div>
@@ -17,9 +16,11 @@
         <div class='col-sm-3'>パスワード</div>
         <div class='col-sm-9'>xxxxxxxx</div>
       </div>
-      <div class='d-grid col-12 mx-auto'>
-        <%= link_to "変更する　＞", edit_user_path(@user), class: 'btn-primary-green' %>
-      </div>
+        <% if !(session[:guest] == "guest_user") %>
+          <div class='d-grid col-12 mx-auto'>
+            <%= link_to "変更する　＞", edit_user_path(@user), class: 'btn-primary-green' %>
+          </div>
+        <% end %>
     </div>
   </div>
 </div>
