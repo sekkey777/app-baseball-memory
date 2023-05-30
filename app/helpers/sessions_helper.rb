@@ -3,8 +3,14 @@ module SessionsHelper
     session[:user_id] = user.id
   end
 
+  def log_in_guest_user(user)
+    session[:user_id] = user.id
+    session[:guest] = "guest_user"
+  end
+
   def log_out
     session.delete(:user_id)
+    session.delete(:guest) if session[:guest]
   end
 
   def current_user

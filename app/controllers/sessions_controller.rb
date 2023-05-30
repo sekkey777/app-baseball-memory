@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
         user.password = SecureRandom.urlsafe_base64
       end
       user.save
-      log_in user
+      log_in_guest_user user
       flash[:success] = "ゲストユーザーとしてログインしました"
       redirect_to posts_path
     else
