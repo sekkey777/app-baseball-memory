@@ -53,9 +53,15 @@ ja:
         id: ID
         email: メールアドレス
         name: ユーザー名
-        password_digest: パスワード
+        password: パスワード
         created_at: 登録日
         updated_at: 更新日
+    errors:
+      messages:
+        invalid: "が正しくありません"
+        blank: "を入力してください"
+        required: "は必須です"
+        too_short: "は%{count}文字以上で入力してください"
 
   date:
     formats:
