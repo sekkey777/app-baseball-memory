@@ -44,6 +44,9 @@ ja:
       post:
         id: ID
         title: タイトル
+        baseball_team: チーム
+        baseball_park: 球場
+        category: カテゴリー
         baseball_team_id: チーム
         baseball_park_id: 球場
         category_id: カテゴリー

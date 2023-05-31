@@ -6,27 +6,27 @@
   <%= form_with(model: @post, local: true) do |f| %>
     <%= render partial: 'shared/error_messages', locals: { value: @post }%>
     <div class='row mb-5'>
-      <div class='col-sm-3'><%= f.label :title, 'タイトル', class: 'col-form-label' %></div>
+      <div class='col-sm-3'><%= f.label :title, t('activerecord.attributes.post.title'), class: 'col-form-label' %></div>
       <div class='col-sm-9'><%= f.text_field :title, class: 'form-control' %></div>
     </div>
     <div class='row mb-5'>
-      <div class='col-sm-3'><%= f.label :baseball_team_id, 'チーム', class: 'col-form-label' %></div>
+      <div class='col-sm-3'><%= f.label :baseball_team_id, t('activerecord.attributes.post.baseball_team'), class: 'col-form-label' %></div>
       <div class='col-sm-9'><%= f.collection_select(:baseball_team_id, @baseball_teams, :id, :name, {:include_blank => true}, class: 'form-select') %></div>
     </div>
     <div class='row mb-5'>
-      <div class='col-sm-3'><%= f.label :baseball_park_id, '球場', class: 'col-form-label' %></div>
+      <div class='col-sm-3'><%= f.label :baseball_park_id, t('activerecord.attributes.post.baseball_park'), class: 'col-form-label' %></div>
       <div class='col-sm-9'><%= f.collection_select(:baseball_park_id, @baseball_parks, :id, :name, {:include_blank => true}, class: 'form-select') %></div>
     </div>
     <div class='row mb-5'>
-      <div class='col-sm-3'><%= f.label :category_id, 'カテゴリー', class: 'col-form-label' %></div>
+      <div class='col-sm-3'><%= f.label :category_id, t('activerecord.attributes.post.category'), class: 'col-form-label' %></div>
       <div class='col-sm-9'><%= f.collection_select(:category_id, @categories, :id, :name, {:include_blank => true}, class: 'form-select') %></div>
     </div>
     <div class='row mb-5'>
-      <div class='col-sm-3'><%= f.label :content, '投稿内容', class: 'col-form-label' %></div>
+      <div class='col-sm-3'><%= f.label :content, t('activerecord.attributes.post.content'), class: 'col-form-label' %></div>
       <div class='col-sm-9'><%= f.text_area :content, rows: 8, class: 'form-control' %></div>
     </div>
     <div class='row mb-5'>
-      <div class='col-sm-3'><%= f.label :photo, '写真', class: 'col-form-label' %></div>
+      <div class='col-sm-3'><%= f.label :photo, t('activerecord.attributes.post.photo'), class: 'col-form-label' %></div>
       <div class='col-sm-9'><%= f.file_field :photo, rows: 8, class: 'form-control' %></div>
     </div>
     <div class='d-grid col-12 mx-auto mb-3'>
