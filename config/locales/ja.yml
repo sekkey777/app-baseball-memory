@@ -1,13 +1,59 @@
 ja:
   activerecord:
     models:
-      event: イベント
+      baseball_park: チーム
+      baseball_team: 球場
+      category: カテゴリー
+      game: 観戦記録
+      like: いいね
+      post: 投稿
+      user: ユーザー
     attributes:
-      event:
+      baseball_park:
+        id: ID
+        name: 球場名
+        created_at: 登録日
+        updated_at: 更新日
+      baseball_team:
+        id: ID
+        name: チーム名
+        created_at: 登録日
+        updated_at: 更新日
+      category:
+        ID: ID
+        name: カテゴリー名
+        created_at: 登録日
+        updated_at: 更新日
+      game:
+        id: ID
+        date: 試合日程
+        home_team_score: 応援チーム得点
+        away_team_score: 対戦チーム得点
+        memo: 観戦記録
+        photo: 写真
+        result: 結果
+        home_team_id: 応援チーム
+        away_team_id: 対戦チーム
+        baseball_park_id: 球場
+        user_id: ユーザー名
+        created_at: 登録日
+        updated_at: 更新日
+      post:
         id: ID
         title: タイトル
-        start_time: 開始時刻
-        end_time: 終了時刻
+        baseball_team_id: チーム
+        baseball_park_id: 球場
+        category_id: カテゴリー
+        user_id: ユーザー
+        content: 投稿内容
+        photo: 写真
+        created_at: 登録日
+        updated_at: 更新日
+      user:
+        id: ID
+        email: メールアドレス
+        name: ユーザー名
+        password_digest: パスワード
         created_at: 登録日
         updated_at: 更新日
 
