@@ -2,35 +2,35 @@
   <div class='row justify-content-center'>
     <div class='col-sm-8 shadow-sm text-main bg-sub-color-gray p-5 mt-sm-5 mb-3'>
       <div class='mb-sm-4'> 
-        <h3 class='col-auto'><span class='display-5'>| </span>観戦記録</h3>
+        <h3 class='col-auto'><span class='display-5'>| </span><%= t('activerecord.models.game') %></h3>
       </div>
       <div class='row justify-content-center mb-sm-3 text-center'>
         <div class='col-sm-5 shadow-sm p-3 p-sm-5 mb-2 m-sm-4 <%= @game.result %>-team'>
-          <div class='text-center game-<%= @game.result %>'>応援チーム</div>
+          <div class='text-center game-<%= @game.result %>'><%= t('activerecord.attributes.game.home_team') %></div>
           <div class='mb-2'><%= @game.home_team.name %></div>
           <div class='number-size'><%= @game.home_team_score %></div>
         </div>
         <div class='col-sm-5 shadow-sm p-3 p-sm-5 mb-2 m-sm-4 <%= @game.away_result %>-team'>
-          <div class='game-<%= @game.away_result %>'>対戦チーム</div>
+          <div class='game-<%= @game.away_result %>'><%= t('activerecord.attributes.game.away_team') %></div>
           <div class='mb-2'><%= @game.away_team.name %></div>
           <div class='number-size'><%= @game.away_team_score %></div>
         </div>
       </div>
       <div class='row justify-content-center'>
         <div class='col-sm-5 px-1 px-sm-5 mx-sm-4 mb-2 mb-sm-5 text-center'>
-          <div class='game-draw'>試合日程</div>
+          <div class='game-draw'><%= t('activerecord.attributes.game.date') %></div>
           <div class='mb-2'><%= @game.date %></div>
         </div>
         <div class='col-sm-5 px-1 px-sm-5 mx-sm-4 mb-2 mb-sm-5 text-center'>
-          <div class='game-draw'>球場</div>
+          <div class='game-draw'><%= t('activerecord.attributes.game.baseball_park') %></div>
           <div class='mb-2'><%= @game.baseball_park.name %></div>
         </div>
         <div class='row mb-5'>
-          <div class='col-sm-2'>投稿内容</div>
+          <div class='col-sm-2'><%= t('activerecord.attributes.game.memo') %></div>
           <div class='col-sm-8'><%= @game.memo %></div>
         </div>
         <div class='row mb-5'>
-          <div class='col-sm-2'>写真</div>
+          <div class='col-sm-2'><%= t('activerecord.attributes.game.photo') %></div>
           <div class='col-sm-8'><%= image_tag @game.photos.variant(resize_to_limit: [nil, 400]), class: 'responsive-image' if @game.photos.attached? %></div>
         </div>
         <div class='row justify-content-center my-sm-5'>
