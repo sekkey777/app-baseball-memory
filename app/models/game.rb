@@ -32,6 +32,7 @@
 #
 class Game < ApplicationRecord
   before_save :set_result
+  before_update :set_result
 
   belongs_to :away_team, class_name: 'BaseballTeam'
   belongs_to :home_team, class_name: 'BaseballTeam'
@@ -104,7 +105,7 @@ class Game < ApplicationRecord
 
   def set_result
     if home_team_score.nil? || away_team_score.nil?
-      return
+      return self.result = nil
     end
 
     if home_team_score > away_team_score
