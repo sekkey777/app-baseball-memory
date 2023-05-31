@@ -47,7 +47,7 @@
   <div class='row justify-content-center'>
     <div class='col-sm-10 shadow-sm text-main bg-sub-color-gray p-5 my-sm-5'>
       <div class='mb-sm-5'> 
-        <h3 class='col-auto'><span class='display-5'>| </span>観戦記録</h3>
+        <h3 class='col-auto'><span class='display-5'>| </span><%= t('activerecord.models.game') %></h3>
       </div>
       <div>
         <%= render partial: 'shared/game_list', locals: { games: @games } %>
