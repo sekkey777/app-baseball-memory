@@ -28,19 +28,16 @@
 #
 class Post < ApplicationRecord
   # rubocop:disable Airbnb/OptArgParameters
+  validates :title, presence: true, length: { maximum: 80 }
+  validates :content, presence: true, length: { maximum: 1000 }
+  validates :photo, presence: true
   belongs_to :user
+
   belongs_to :baseball_team
   belongs_to :baseball_park
   belongs_to :category
   has_many :likes
   has_one_attached :photo
-
-  validates :content, presence: true, length: { maximum: 1000 }
-  validates :title, presence: true, length: { maximum: 80 }
-  validates :baseball_team_id, presence: true
-  validates :baseball_park_id, presence: true
-  validates :category_id, presence: true
-  validates :photo, presence: true
 
   def self.ransackable_attributes(auth_object = nil)
     ["baseball_park_id", "baseball_team_id", "category_id", "title"]

@@ -34,18 +34,14 @@ class Game < ApplicationRecord
   before_save :set_result
   before_update :set_result
 
-  belongs_to :away_team, class_name: 'BaseballTeam'
   belongs_to :home_team, class_name: 'BaseballTeam'
+  belongs_to :away_team, class_name: 'BaseballTeam'
   belongs_to :baseball_park
   belongs_to :user
   has_many_attached :photos
 
-  validates :home_team_id, presence: true
-  validates :away_team_id, presence: true
-  validates :baseball_park_id, presence: true
   validates :date, presence: true
   validates :memo, length: { maximum: 1000 }
-  validates :user_id, presence: true
 
   def self.win_count
     where(result: 'win').count

@@ -50,12 +50,8 @@ RSpec.describe Game, type: :model do
   end
 
   describe 'Gameモデルのバリデーションが適切に設定されていること' do
-    it { should validate_presence_of(:home_team_id) }
-    it { should validate_presence_of(:away_team_id) }
-    it { should validate_presence_of(:baseball_park_id) }
     it { should validate_presence_of(:date) }
     it { should validate_length_of(:memo).is_at_most(1000) }
-    it { should validate_presence_of(:user_id) }
   end
 
   describe 'Gameモデルのメソッドが正しく動作していること' do
