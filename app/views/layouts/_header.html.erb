@@ -8,7 +8,6 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class='nav-item'><%= link_to( posts_path, class: 'header-left-btn' ) do %><i class="bi bi-card-text me-2"></i>投稿<% end %></li>
-          <li class='nav-item'><%= link_to( new_user_path, class: 'header-left-btn' ) do %><i class="bi bi-trophy me-2"></i>ランキング<% end %></li>
           <% if logged_in? %>
             <li class='nav-item'><%= link_to( new_post_path, class: 'header-left-btn' ) do %><i class="bi bi-envelope-fill me-2"></i></i>思い出を投稿<% end %></li>
             <li class='nav-item'><%= link_to( my_posts_path, class: 'header-left-btn' ) do %><i class="bi bi-memory me-2"></i>思い出一覧<% end %></li>
