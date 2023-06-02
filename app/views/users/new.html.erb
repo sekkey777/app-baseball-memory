@@ -8,7 +8,7 @@
       <%= render partial: 'shared/user_form', locals: { new_user: true, user: @user } %>
       <div>
         アカウントをお持ちの方は、<%= link_to 'ログイン', login_path, class: 'link-text' %>してください。<br>
-        アカウントを作成せずに利用する場合は<%= link_to 'ゲストログイン', new_user_path, class: 'link-text' %>をお使いください。
+        アカウントを作成せずに利用する場合は<%= link_to 'ゲストログイン', login_path(guest_login: true), method: :post, class: 'link-text' %>をお使いください。
       </div>
     </div>
   </div>

@@ -18,7 +18,7 @@
           <%= f.submit 'ログインする', class: 'btn-primary-red'%>
         </div>
       <% end %>
-      <div>アカウントをお持ちでない方は、<%= link_to 'アカウント登録', new_user_path, class: 'link-text' %>するか、<%= link_to 'ゲストログイン', new_user_path, class: 'link-text' %>をお使いください。</div>
+      <div>アカウントをお持ちでない方は、<%= link_to 'アカウント登録', new_user_path, class: 'link-text' %>するか、<%= link_to 'ゲストログイン', login_path(guest_login: true), method: :post, class: 'link-text' %>をお使いください。</div>
     </div>
   </div>
 </div>
