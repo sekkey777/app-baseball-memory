@@ -11,6 +11,14 @@ class GamesController < ApplicationController
     @games = current_user.games.includes(:user, :baseball_park, :away_team, :home_team).with_attached_photos
   end
 
+  def index_list
+    @games = current_user.games.includes(:user, :baseball_park, :away_team, :home_team).with_attached_photos
+  end
+
+  def index_calendar
+    @games = current_user.games.includes(:user, :baseball_park, :away_team, :home_team).with_attached_photos
+  end
+
   def create
     @game = Game.new(game_params.merge(user_id: current_user.id))
     if @game.save

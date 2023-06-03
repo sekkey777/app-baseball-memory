@@ -12,5 +12,10 @@ Rails.application.routes.draw do
     resources :likes, only: [:create, :destroy]
   end
   resources :my_posts
-  resources :games
+  resources :games do
+    collection do
+      get :index_list
+      get :index_calendar
+    end
+  end
 end
