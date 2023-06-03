@@ -1,0 +1,1 @@
+document.getElementById('like-' + <%= @post.id %>).innerHTML = `<%= j(render "shared/like", post: @post) %>`;

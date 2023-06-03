@@ -25,7 +25,7 @@
         <%= image_tag post.photo.variant(resize_to_limit: [nil, 400]), class: 'img-fluid' if post.photo.attached? %>
       </div>
       <div class='mt-3'>
-        <%= render partial: 'shared/like', locals: { post: post } %>
+        <span id="like-<%= post.id %>"><% p "test" %><% p post %><%= render partial: 'shared/like', locals: { post: post } %></span>
         <span class='me-sm-1'><i class='bi bi-hash'></i><%= post.baseball_team.name %></span>
         <span class='me-sm-1'><i class='bi bi-hash'></i><%= post.baseball_park.name %></span>
         <span class='me-sm-1'><i class='bi bi-hash'></i><%= post.category.name %></span>

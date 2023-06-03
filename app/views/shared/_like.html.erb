@@ -1,6 +1,6 @@
 <% if current_user && current_user.liked_by?(post.id) %>
-  <span><%= link_to( post_like_path(post, post.likes.ids), method: :delete, class: 'header-left-btn' ) do %><i class="bi bi-heart-fill text-main-red fs-4"></i><% end %></span>
+  <span><%= link_to( post_like_path(post, post.likes.ids), method: :delete, class: 'header-left-btn', remote: true ) do %><i class="bi bi-heart-fill text-main-red fs-4"></i><% end %></span>
 <% else %>
-  <span><%= link_to( post_likes_path(post), method: :post, class: 'header-left-btn' ) do %><i class='bi bi-heart text-main-red fs-4'></i><% end %></span>
+  <span><%= link_to( post_likes_path(post), method: :post, class: 'header-left-btn', remote: true ) do %><i class='bi bi-heart text-main-red fs-4'></i><% end %></span>
 <% end %>
 <span class='me-sm-1 text-main-red'><%= post.likes.count if post.likes.present? %></span>
