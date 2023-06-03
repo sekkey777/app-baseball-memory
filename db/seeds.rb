@@ -78,6 +78,7 @@ p '=========================== CREATE POSTS ==========================='
     file_name = "image#{i * 11 + j + 1}.jpg"
     file_path = Rails.root.join('app', 'assets', 'images', 'baseball-park-dummy-data.jpg')
     post.photo.attach(io: File.open(file_path), filename: 'baseball-park-dummy-data.jpg', content_type: 'image/jpeg')
+    post.save
   end
 end
 
