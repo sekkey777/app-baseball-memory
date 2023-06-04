@@ -1,5 +1,5 @@
 <div class="simple-calendar">
-  <div class="calendar-heading row mb-4">
+  <div class="calendar-heading row">
     <div class='col-4'><%= link_to '＜', calendar.url_for_previous_view, class: 'btn-pale' %></div>
     <div class="calendar-title btn col-4"><%= t('date.month_names')[start_date.month] %></div>
     <div class='col-4'><%= link_to '＞', calendar.url_for_next_view, class: 'btn-pale' %></div>
@@ -7,7 +7,7 @@
 
   <table class="table">
     <thead>
-      <tr class='mb-5'>
+      <tr>
         <% date_range.slice(0, 7).each do |day| %>
           <th class='m-5'><%= t('date.abbr_day_names')[day.wday] %></th>
         <% end %>
@@ -16,9 +16,9 @@
 
     <tbody>
       <% date_range.each_slice(7) do |week| %>
-        <tr class='m-5'>
+        <tr>
           <% week.each do |day| %>
-            <div class='m-5'>
+            <div class='m-2'>
               <%= content_tag :td, class: calendar.td_classes_for(day) do %>
                 <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(passed_block) %>
                   <% capture_haml(day, sorted_events.fetch(day, []), &passed_block) %>
