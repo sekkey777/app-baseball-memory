@@ -1,5 +1,6 @@
 class GamesController < ApplicationController
   before_action :set_game, only: [:show, :edit, :update, :destroy]
+  before_action :set_games, only: [:index, :index_list, :index_calendar]
   before_action :set_select_values, only: [:new, :edit, :create, :update, :destroy]
   before_action :set_beginning_of_week, only: [:index]
 
@@ -8,15 +9,12 @@ class GamesController < ApplicationController
   end
 
   def index
-    @games = current_user.games.includes(:user, :baseball_park, :away_team, :home_team).with_attached_photos
   end
 
   def index_list
-    @games = current_user.games.includes(:user, :baseball_park, :away_team, :home_team).with_attached_photos
   end
 
   def index_calendar
-    @games = current_user.games.includes(:user, :baseball_park, :away_team, :home_team).with_attached_photos
   end
 
   def create
@@ -61,6 +59,10 @@ class GamesController < ApplicationController
 
   def set_game
     @game = current_user.games.find(params[:id])
+  end
+
+  def set_games
+    @games = current_user.games.includes(:user, :baseball_park, :away_team, :home_team).with_attached_photos
   end
 
   def set_beginning_of_week
