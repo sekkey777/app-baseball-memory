@@ -67,7 +67,7 @@ class Game < ApplicationRecord
   end
 
   def self.current_sequence
-    last_results = pluck(:result).reverse
+    last_results = order(date: :asc).pluck(:result).reject { |result| result == 'scheduled' }.reverse
 
     sequence_type = nil
     sequence_count = 0
