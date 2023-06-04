@@ -67,7 +67,7 @@ class Game < ApplicationRecord
   end
 
   def self.current_sequence
-    last_results = pluck(:result).reverse
+    last_results = order(date: :asc).pluck(:result).reject { |result| result == 'scheduled' }.reverse
 
     sequence_type = nil
     sequence_count = 0
@@ -86,14 +86,14 @@ class Game < ApplicationRecord
 
   def away_result
     case result
-    when "win"
-      "lose"
-    when "lose"
-      "win"
-    when "draw"
+    when 'win'
+      'lose'
+    when 'lose"'
+      'win'
+    when 'draw'
       "draw"
     else
-      "unknown"
+      'scheduled'
     end
   end
 
@@ -101,15 +101,17 @@ class Game < ApplicationRecord
 
   def set_result
     if home_team_score.nil? || away_team_score.nil?
-      return self.result = nil
+      return self.result = 'scheduled'
     end
 
     if home_team_score > away_team_score
       self.result = 'win'
     elsif home_team_score < away_team_score
       self.result = 'lose'
-    else
+    elsif home_team_score == away_team_score
       self.result = 'draw'
+    else
+      self.result = 'scheduled'
     end
   end
 end

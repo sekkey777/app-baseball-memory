@@ -253,6 +253,10 @@ body {
   margin: 10px;
 }
 
+.game-scheduled {
+  @extend .game-green !optional;
+}
+
 .win-line {
   background-color: $third-color-gray;
   border: $primary-color-red solid 2px;
@@ -346,22 +350,27 @@ body {
 
 .btn-win {
   @extend .btn-primary-red !optional;
-  width: 50px;
+  width: 100px;
 }
 
 .btn-lose {
   @extend .btn-primary-blue !optional;
-  width: 50px;
+  width: 100px;
 }
 
 .btn-draw {
   @extend .btn-primary-gray !optional;
-  width: 50px;
+  width: 100px;
 }
 
 .btn-green {
   @extend .btn-primary-green !optional;
-  width: 50px;
+  width: 100px;
+}
+
+.btn-scheduled {
+  @extend .btn-primary-green !optional;
+  width: 100px;
 }
 
 .win-team {
