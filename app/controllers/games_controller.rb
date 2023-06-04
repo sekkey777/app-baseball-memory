@@ -62,7 +62,7 @@ class GamesController < ApplicationController
   end
 
   def set_games
-    @games = current_user.games.includes(:user, :baseball_park, :away_team, :home_team).with_attached_photos
+    @games = current_user.games.includes(:user, :baseball_park, :away_team, :home_team).with_attached_photos.order(:date)
   end
 
   def set_beginning_of_week
