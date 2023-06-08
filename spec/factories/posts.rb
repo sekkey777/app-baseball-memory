@@ -28,11 +28,12 @@
 #
 FactoryBot.define do
   factory :post do
-    title { "MyString" }
-    content { "MyText" }
-    user_id { "" }
-    baseball_team_id { "" }
-    baseball_park_id { "" }
-    category_id { "" }
+    title { 'test_title' }
+    content { 'test_content' }
+    photo { Rack::Test::UploadedFile.new(Rails.root.join('spec', 'images', 'test_image.jpg'), 'image/jpeg') }
+    association :user
+    association :baseball_team
+    association :baseball_park
+    association :category
   end
 end
