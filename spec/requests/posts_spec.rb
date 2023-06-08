@@ -1,31 +1,51 @@
 require 'rails_helper'
 
-RSpec.describe "Posts", type: :request do
-  describe "GET /index" do
-    it "returns http success" do
-      get "/posts/index"
-      expect(response).to have_http_status(:success)
-    end
-  end
+RSpec.describe 'Posts', type: :request do
+  let!(:post) { create(:post) }
 
-  describe "GET /new" do
-    it "returns http success" do
-      get "/posts/new"
+  describe '投稿関連画面への遷移' do
+    it 'ホーム画面に遷移できること' do
+      get root_path
       expect(response).to have_http_status(:success)
+      expect(response.body).to include(post.user.name)
+      expect(response.body).to include(post.updated_at.strftime("%Y/%m/%d %H:%M:%S"))
+      expect(response.body).to include(post.title)
+      expect(response.body).to include(post.baseball_team.name)
+      expect(response.body).to include(post.baseball_park.name)
+      expect(response.body).to include(post.category.name)
     end
-  end
 
-  describe "GET /show" do
-    it "returns http success" do
-      get "/posts/show"
+    it '投稿一覧画面に遷移できること' do
+      get posts_path
       expect(response).to have_http_status(:success)
+      expect(response.body).to include(post.user.name)
+      expect(response.body).to include(post.updated_at.strftime("%Y/%m/%d %H:%M:%S"))
+      expect(response.body).to include(post.title)
+      expect(response.body).to include(post.baseball_team.name)
+      expect(response.body).to include(post.baseball_park.name)
+      expect(response.body).to include(post.category.name)
     end
-  end
 
-  describe "GET /edit" do
-    it "returns http success" do
-      get "/posts/edit"
+    it '新規投稿画面に遷移できずに、ログイン画面に遷移すること' do
+      get new_post_path
+      expect(response).to redirect_to(login_path)
+    end
+
+    it '投稿詳細画面に遷移できること' do
+      get post_path(post)
       expect(response).to have_http_status(:success)
+      expect(response.body).to include(post.user.name)
+      expect(response.body).to include(post.updated_at.strftime("%Y/%m/%d %H:%M:%S"))
+      expect(response.body).to include(post.title)
+      expect(response.body).to include(post.content)
+      expect(response.body).to include(post.baseball_team.name)
+      expect(response.body).to include(post.baseball_park.name)
+      expect(response.body).to include(post.category.name)
+    end
+
+    it '投稿編集画面に遷移できずに、ログイン画面に遷移すること' do
+      get edit_my_post_path(post)
+      expect(response).to redirect_to(login_path)
     end
   end
 end
