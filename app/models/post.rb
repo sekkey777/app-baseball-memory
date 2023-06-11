@@ -41,8 +41,10 @@ class Post < ApplicationRecord
   has_one_attached :photo
 
   def photo_type
-    if !photo.blob.content_type.in?(%('image/jpeg image/png'))
-      errors.add(:photos, 'はjpegまたはpng形式でアップロードしてください')
+    if photo.attached?
+      if !photo.blob.content_type.in?(%('image/jpeg image/png'))
+        errors.add(:photos, 'はjpegまたはpng形式でアップロードしてください')
+      end
     end
   end
 
