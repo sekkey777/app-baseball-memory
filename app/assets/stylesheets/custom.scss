@@ -351,16 +351,31 @@ body {
 .btn-win {
   @extend .btn-primary-red !optional;
   width: 100px;
+  @media (max-width: 576px) {
+    width: 40px;
+    font-size: 10px;
+  }
 }
 
 .btn-lose {
   @extend .btn-primary-blue !optional;
   width: 100px;
+  @media (max-width: 576px) {
+    width: 25px;
+    @media (max-width: 576px) {
+      width: 40px;
+      font-size: 15px;
+    }
+  }
 }
 
 .btn-draw {
   @extend .btn-primary-gray !optional;
   width: 100px;
+  @media (max-width: 576px) {
+    width: 40px;
+    font-size: 15px;
+  }
 }
 
 .btn-green {
@@ -371,6 +386,10 @@ body {
 .btn-scheduled {
   @extend .btn-primary-green !optional;
   width: 100px;
+  @media (max-width: 576px) {
+    width: 40px;
+    font-size: 10px;
+  }
 }
 
 .win-team {

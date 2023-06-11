@@ -2,9 +2,9 @@
   <div><%= date.day %></div>
   <% games_on_date = games.select { |game| game.date.to_date == date } %>
   <% games_on_date.each do |game| %>
-    <div class='mb-1'>
+    <div class='mb-1 text-center'>
       <% if game.result %>
-        <%= link_to game.result, game_path(game), class: "btn-#{game.result}" %>
+        <%= link_to result_for_calendar(game.result), game_path(game), class: "btn-#{game.result}" %>
       <% else %>
         <%= link_to '＞', game_path(game), class: "btn-green" %>
       <% end %>
