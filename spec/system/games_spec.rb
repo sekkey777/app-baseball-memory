@@ -65,7 +65,7 @@ RSpec.describe "Games", type: :system do
     before do
       login(user)
       visit games_path
-      click_on game.result
+      click_on result_for_calendar(game.result)
     end
 
     it '観戦記録詳細ページに遷移できること' do
@@ -102,7 +102,7 @@ RSpec.describe "Games", type: :system do
       # 観戦記録一覧に遷移する
       expect(page).to have_current_path(games_path)
       expect(page).to have_content('投稿内容を更新しました')
-      expect(page).to have_content('win')
+      expect(page).to have_content('◯')
     end
   end
 
@@ -116,7 +116,7 @@ RSpec.describe "Games", type: :system do
     it '観戦記録一覧ページ遷移時にはカレンダーが表示されていること' do
       expect(page).to have_css('.simple-calendar')
       expect(page).not_to have_css('.table-responsive')
-      expect(page).to have_content(game.result)
+      expect(page).to have_content(result_for_calendar(game.result))
     end
   end
 end
