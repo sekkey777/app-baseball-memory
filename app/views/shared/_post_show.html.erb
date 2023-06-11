@@ -3,10 +3,10 @@
     <div class='col-sm-10 shadow-sm text-main bg-sub-color-gray p-5 my-sm-5'>
       <div class='row'>
         <div class='row mb-3'>
-          <div class='col-2 fs-1'>
-            <i class='bi bi-person-circle'></i>
+          <div class='col-2 col-sm-1 fs-1'>
+            <i class="bi bi-person-circle"></i>
           </div>
-          <div class='col-10 text-user-name'>
+          <div class='col-10 col-sm-11 text-user-name'>
             <div><%= post.user.name %></div>
             <div><%= l post.updated_at %></div>
           </div>
@@ -20,17 +20,17 @@
         <div class='d-flex justify-content-center mb-5'>
           <%= image_tag post.photo.variant(resize_to_limit: [nil, 400]), class: 'responsive-image' if post.photo.attached? %>
         </div>
-        <div>
-          <%= render partial: 'shared/like', locals: { post: post } %>
-          <span class='me-1'><i class='bi bi-hash'></i><%= post.baseball_team.name %></span>
-          <span class='me-1'><i class='bi bi-hash'></i><%= post.baseball_park.name %></span>
-          <span class='me-1'><i class='bi bi-hash'></i><%= post.category.name %></span>
+        <div class='d-flex flex-column flex-sm-row align-items-center'>
+          <div class='me-sm-1'><%= render partial: 'shared/like', locals: { post: post } %></div>
+          <div class='me-sm-1'><i class="bi bi-hash"></i><%= post.baseball_team.name %></div>
+          <div class='me-sm-1'><i class="bi bi-hash"></i><%= post.baseball_park.name %></div>
+          <div class='me-sm-1'><i class="bi bi-hash"></i><%= post.category.name %></div>
         </div>
         <% if defined?(my_posts) %>
           <div class='row mx-auto my-sm-3'>
-            <%= link_to '一覧に戻る', my_posts_path, class: 'btn-primary-gray col-sm-4 mb-1' %>
-            <%= link_to '変更する', edit_my_post_path(@post), class: 'btn-primary-green col-sm-4 mb-1' %>
-            <%= link_to '削除する', my_post_path(@post), method: :delete, class: 'btn-primary-red col-sm-4 mb-1' %>
+            <%= link_to "一覧に戻る", my_posts_path, class: 'btn-primary-gray col-sm-4 mb-1' %>
+            <%= link_to "変更する", edit_my_post_path(@post), class: 'btn-primary-green col-sm-4 mb-1' %>
+            <%= link_to "削除する", my_post_path(@post), method: :delete, class: 'btn-primary-red col-sm-4 mb-1' %>
           </div>
         <% end %>
       </div>

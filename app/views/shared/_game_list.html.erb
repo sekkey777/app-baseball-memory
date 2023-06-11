@@ -19,7 +19,7 @@
           <td><%= game.baseball_park.name %></td>
           <td>
             <% if game.result %>
-              <%= link_to game.result, game_path(game), class: "btn-#{game.result}" %>
+              <%= link_to result_for_calendar(game.result), game_path(game), class: "btn-#{game.result}" %>
             <% else %>
               <%= link_to '＞', game_path(game), class: 'btn-green' %>
             <% end %>
