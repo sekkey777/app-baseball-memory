@@ -54,7 +54,7 @@ class GamesController < ApplicationController
 
   def game_params
     params.require(:game).permit(:date, :memo, :home_team_id, :away_team_id, :baseball_park_id, :home_team_score,
-:away_team_score, :photo)
+:away_team_score)
   end
 
   def set_game
@@ -62,7 +62,7 @@ class GamesController < ApplicationController
   end
 
   def set_games
-    @games = current_user.games.includes(:user, :baseball_park, :away_team, :home_team).with_attached_photos.order(:date)
+    @games = current_user.games.includes(:user, :baseball_park, :away_team, :home_team).order(:date)
   end
 
   def set_beginning_of_week
