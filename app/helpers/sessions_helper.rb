@@ -5,7 +5,7 @@ module SessionsHelper
 
   def log_in_guest_user(user)
     session[:user_id] = user.id
-    session[:guest] = "guest_user"
+    session[:guest] = 'guest_user'
   end
 
   def log_out
