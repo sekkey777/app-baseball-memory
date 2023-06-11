@@ -31,7 +31,7 @@ class Post < ApplicationRecord
   validates :title, presence: true, length: { maximum: 80 }
   validates :content, presence: true, length: { maximum: 1000 }
   validates :photo, presence: true
-  validate :photo_type, :photo_size
+  validate :photo_type
   belongs_to :user
 
   belongs_to :baseball_team
