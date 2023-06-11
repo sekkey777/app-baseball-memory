@@ -38,11 +38,11 @@ RSpec.describe 'Posts', type: :request do
     end
   end
 
-  describe 'トップページに表示される投稿の数が制御されていること' do
+  describe '投稿一覧に表示される投稿の数が制御されていること' do
     let!(:post) { create_list(:post, 11) }
 
-    it 'トップページに表示される投稿の最大数が10であること' do
-      get root_path
+    it '投稿一覧に表示される投稿の最大数が10であること' do
+      get posts_path
       expect(assigns(:posts).count).to eq(10)
     end
   end
