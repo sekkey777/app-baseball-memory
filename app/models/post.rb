@@ -31,6 +31,7 @@ class Post < ApplicationRecord
   validates :title, presence: true, length: { maximum: 80 }
   validates :content, presence: true, length: { maximum: 1000 }
   validates :photo, presence: true
+  validate :photo_type, :photo_size
   belongs_to :user
 
   belongs_to :baseball_team
@@ -38,6 +39,12 @@ class Post < ApplicationRecord
   belongs_to :category
   has_many :likes
   has_one_attached :photo
+
+  def photo_type
+    if !photo.blob.content_type.in?(%('image/jpeg image/png'))
+      errors.add(:photos, 'はjpegまたはpng形式でアップロードしてください')
+    end
+  end
 
   def self.ransackable_attributes(auth_object = nil)
     ["baseball_park_id", "baseball_team_id", "category_id", "title"]
