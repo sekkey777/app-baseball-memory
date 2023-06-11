@@ -59,7 +59,7 @@ ja:
         updated_at: 更新日
       user:
         id: ID
-        email: メールアドレス
+        email: メールアドレス（任意）
         name: ユーザー名
         password: パスワード
         password_confirmation: パスワード（確認）
