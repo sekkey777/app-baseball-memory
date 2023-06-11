@@ -5,15 +5,14 @@ RSpec.describe "Games", type: :system do
   let!(:baseball_team1) { create(:baseball_team, name: 'Team1') }
   let!(:baseball_team2) { create(:baseball_team, name: 'Team2') }
   let!(:baseball_park) { create(:baseball_park, name: 'Park') }
-  
-  
+
   describe '正常な値で観戦記録を登録する' do
     let(:game) { build(:game, user: user, home_team: baseball_team1, away_team: baseball_team2, baseball_park: baseball_park) }
     before do
       login(user)
       visit new_game_path
     end
-    
+
     it '観戦記録（予定）を登録できること' do
       select game.home_team.name, from: '応援チーム'
       select game.away_team.name, from: '対戦チーム'
@@ -43,7 +42,7 @@ RSpec.describe "Games", type: :system do
       login(user)
       visit new_game_path
     end
-    
+
     it '空値で観戦記録を登録できないこと' do
       click_on '記録する'
       expect(page).to have_content('記録に失敗しました')
@@ -61,7 +60,7 @@ RSpec.describe "Games", type: :system do
   end
 
   describe '観戦記録詳細、編集' do
-    let!(:game) { create(:game, user: user)}
+    let!(:game) { create(:game, user: user) }
     before do
       login(user)
       visit games_path
@@ -107,7 +106,7 @@ RSpec.describe "Games", type: :system do
   end
 
   describe 'カレンダー表示とリスト表示' do
-    let!(:game) { create(:game, user: user)}
+    let!(:game) { create(:game, user: user) }
     before do
       login(user)
       visit games_path

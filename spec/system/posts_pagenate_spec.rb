@@ -4,7 +4,7 @@ RSpec.describe 'Posts', type: :system do
   describe 'ページネーションが機能していること' do
     let!(:post) { create_list(:post, 25) }
     before { visit root_path }
-  
+
     it 'トップページに表示される投稿の最大数が10であること' do
       expect(page).to have_selector('div#test-post', count: 10)
     end
