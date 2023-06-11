@@ -16,9 +16,9 @@
         <div class='col-sm-3'><%= t('activerecord.attributes.user.password') %></div>
         <div class='col-sm-9'>xxxxxxxx</div>
       </div>
-        <% if !(session[:guest] == "guest_user") %>
+        <% if !(session[:guest] == 'guest_user') %>
           <div class='d-grid col-12 mx-auto'>
-            <%= link_to "変更する　＞", edit_user_path(@user), class: 'btn-primary-green' %>
+            <%= link_to '変更する　＞', edit_user_path(@user), class: 'btn-primary-green' %>
           </div>
         <% end %>
     </div>

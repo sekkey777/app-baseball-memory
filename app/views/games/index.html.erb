@@ -15,7 +15,7 @@
           <% elsif sequence_type == 'draw' %>
             <span class='number-size'><%= sequence_count %></span> 連分中
           <% else %>
-            <%= "連勝・連敗・連続引き分けなし" %>
+            <%= '連勝・連敗・連続引き分けなし' %>
           <% end %>
         </div>
       </div> 
@@ -49,8 +49,8 @@
       <div class='mb-sm-5'> 
         <h3 class='col-auto'><span class='display-5'>| </span><%= t('activerecord.models.game') %></h3>
         <div class='row justify-content-center'>
-          <%= link_to( index_calendar_games_path, remote: true, class: 'col-11 col-sm-3 btn-primary-green mb-2 m-sm-4' ) do %><i class="bi bi-calendar-check-fill"></i> カレンダー表示<% end %>
-          <%= link_to( index_list_games_path, remote: true, class: 'col-11 col-sm-3 btn-primary-green mb-2 m-sm-4' ) do %><i class="bi bi-list-check"></i> リスト表示<% end %>
+          <%= link_to( index_calendar_games_path, remote: true, class: 'col-11 col-sm-3 btn-primary-green mb-2 m-sm-4' ) do %><i class='bi bi-calendar-check-fill'></i> カレンダー表示<% end %>
+          <%= link_to( index_list_games_path, remote: true, class: 'col-11 col-sm-3 btn-primary-green mb-2 m-sm-4' ) do %><i class='bi bi-list-check'></i> リスト表示<% end %>
         <div>
       </div>
       <div id='game-view'>
