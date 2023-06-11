@@ -7,7 +7,7 @@ RSpec.describe 'Users', type: :system do
 
     it '正常にアカウント登録できること' do
       fill_in 'ユーザー名', with: user.name
-      fill_in 'メールアドレス', with: user.email
+      fill_in 'メールアドレス（任意）', with: user.email
       fill_in 'パスワード', with: user.password
       fill_in 'パスワード（確認）', with: user.password_confirmation
       click_on '新規登録する'
@@ -18,19 +18,18 @@ RSpec.describe 'Users', type: :system do
 
     it '不適正な値で登録した場合、失敗すること' do
       fill_in 'ユーザー名', with: ''
-      fill_in 'メールアドレス', with: ''
+      fill_in 'メールアドレス（任意）', with: ''
       fill_in 'パスワード', with: ''
       fill_in 'パスワード（確認）', with: ''
       click_on '新規登録する'
       expect(page).to have_content('登録に失敗しました。')
       expect(page).to have_content('ユーザー名 を入力してください')
-      expect(page).to have_content('メールアドレス を入力してください')
       expect(page).to have_content('パスワード を入力してください')
     end
 
     it '不適正な値で登録した場合、失敗すること' do
       fill_in 'ユーザー名', with: 'aaaa'
-      fill_in 'メールアドレス', with: user.email
+      fill_in 'メールアドレス（任意）', with: user.email
       fill_in 'パスワード', with: 'aaaa'
       fill_in 'パスワード（確認）', with: 'aa'
       click_on '新規登録する'
@@ -79,7 +78,7 @@ RSpec.describe 'Users', type: :system do
     it 'パスワードを入力せずともユーザー情報を更新できること' do
       visit edit_user_path(user)
       fill_in 'ユーザー名', with: 'baseball_user'
-      fill_in 'メールアドレス', with: 'baseball_user@example.com'
+      fill_in 'メールアドレス（任意）', with: 'baseball_user@example.com'
       click_on '更新'
       expect(page).to have_current_path(user_path(user))
       expect(page).to have_content('ユーザー情報を更新しました')
