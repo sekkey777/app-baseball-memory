@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
       end
       guest_user.save
       log_in_guest_user guest_user
-      flash[:success] = "ゲストユーザーとしてログインしました"
+      flash[:success] = 'ゲストユーザーとしてログインしました'
       redirect_to posts_path
     else
       # 通常のユーザーログインの処理を実行

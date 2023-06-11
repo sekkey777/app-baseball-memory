@@ -52,7 +52,7 @@ RSpec.describe 'Sessions', type: :request do
       it '適正なフラッシュメッセージが表示されること' do
         user.password = 'test1234'
         post login_path, params: { session: { name: user.name, password: user.password } }
-        expect(flash[:danger]).to eq("ログインに失敗しました。ユーザー名、またはパスワードが違います。")
+        expect(flash[:danger]).to eq('ログインに失敗しました。ユーザー名、またはパスワードが違います。')
       end
     end
   end

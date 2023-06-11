@@ -49,7 +49,7 @@ class Post < ApplicationRecord
   end
 
   def self.ransackable_attributes(auth_object = nil)
-    ["baseball_park_id", "baseball_team_id", "category_id", "title"]
+    ['baseball_park_id', 'baseball_team_id', 'category_id', 'title']
   end
   # rubocop:enable Airbnb/OptArgParameters
 end

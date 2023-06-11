@@ -1,12 +1,12 @@
-<div class="simple-calendar">
-  <div class="calendar-heading row">
+<div class='simple-calendar'>
+  <div class='calendar-heading row'>
     <% calendar.instance_variable_set(:@params, { controller: 'games', action: 'index' }) if calendar %>
     <div class='col-4'><%= link_to '＜', calendar.url_for_previous_view, class: 'btn-pale' %></div>
-    <div class="calendar-title btn col-4"><%= t('date.month_names')[start_date.month] %></div>
+    <div class='calendar-title btn col-4'><%= t('date.month_names')[start_date.month] %></div>
     <div class='col-4'><%= link_to '＞', calendar.url_for_next_view, class: 'btn-pale' %></div>
   </div>
 
-  <table class="table">
+  <table class='table'>
     <thead>
       <tr>
         <% date_range.slice(0, 7).each do |day| %>

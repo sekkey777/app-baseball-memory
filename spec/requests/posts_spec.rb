@@ -8,7 +8,7 @@ RSpec.describe 'Posts', type: :request do
       get root_path
       expect(response).to have_http_status(:success)
       expect(response.body).to include(post.user.name)
-      expect(response.body).to include(post.updated_at.strftime("%Y/%m/%d %H:%M:%S"))
+      expect(response.body).to include(post.updated_at.strftime('%Y/%m/%d %H:%M:%S'))
       expect(response.body).to include(post.title)
       expect(response.body).to include(post.baseball_team.name)
       expect(response.body).to include(post.baseball_park.name)
@@ -19,7 +19,7 @@ RSpec.describe 'Posts', type: :request do
       get posts_path
       expect(response).to have_http_status(:success)
       expect(response.body).to include(post.user.name)
-      expect(response.body).to include(post.updated_at.strftime("%Y/%m/%d %H:%M:%S"))
+      expect(response.body).to include(post.updated_at.strftime('%Y/%m/%d %H:%M:%S'))
       expect(response.body).to include(post.title)
       expect(response.body).to include(post.baseball_team.name)
       expect(response.body).to include(post.baseball_park.name)
@@ -35,7 +35,7 @@ RSpec.describe 'Posts', type: :request do
       get post_path(post)
       expect(response).to have_http_status(:success)
       expect(response.body).to include(post.user.name)
-      expect(response.body).to include(post.updated_at.strftime("%Y/%m/%d %H:%M:%S"))
+      expect(response.body).to include(post.updated_at.strftime('%Y/%m/%d %H:%M:%S'))
       expect(response.body).to include(post.title)
       expect(response.body).to include(post.content)
       expect(response.body).to include(post.baseball_team.name)
