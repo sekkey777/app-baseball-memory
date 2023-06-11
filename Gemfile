@@ -30,16 +30,19 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  # デバッグ関連
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry-rails'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  # テスト関連
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'shoulda-matchers'
   gem 'rails-controller-testing'
-  gem 'pry-rails'
-  gem 'better_errors'
-  gem 'binding_of_caller'
   gem 'capybara'
   gem 'selenium-webdriver'
+
 end
 
 group :development do
@@ -52,15 +55,21 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'solargraph'
+  # スキーマ情報の書き出し
   gem 'annotate'
+  # コード整形
   gem 'rubocop-airbnb'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+# CSSフレームワーク
 gem 'bootstrap'
+# 検索
 gem 'ransack'
+# ページネーション
 gem 'kaminari'
 gem 'bootstrap5-kaminari-views', '~> 0.0.1'
+# カレンダー表示
 gem 'simple_calendar', '~> 2.4'
