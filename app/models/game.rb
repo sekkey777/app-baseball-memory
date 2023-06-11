@@ -87,7 +87,7 @@ class Game < ApplicationRecord
     case result
     when 'win'
       'lose'
-    when 'lose"'
+    when 'lose'
       'win'
     when 'draw'
       "draw"
