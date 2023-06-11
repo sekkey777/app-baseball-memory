@@ -31,10 +31,6 @@
             <div class='col-sm-2'><%= f.label :memo, t('activerecord.attributes.game.memo'), class: 'col-form-label' %></div>
             <div class='col-sm-8'><%= f.text_area :memo, rows: 8, class: 'form-control' %></div>
           </div>
-          <div class='row mb-5'>
-            <div class='col-sm-2'><%= f.label :photo, t('activerecord.attributes.game.photo'), class: 'col-form-label' %></div>
-            <div class='col-sm-8'><%= f.file_field :photo, rows: 8, class: 'form-control' %></div>
-          </div>
           <div class='d-grid col-8 mx-auto mb-3'>
             <%= f.submit '記録する', class: 'btn-primary-red'%>
           </div>

@@ -38,7 +38,6 @@ class Game < ApplicationRecord
   belongs_to :away_team, class_name: 'BaseballTeam'
   belongs_to :baseball_park
   belongs_to :user
-  has_many_attached :photos
 
   validates :date, presence: true
   validates :memo, length: { maximum: 1000 }
