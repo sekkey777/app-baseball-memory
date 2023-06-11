@@ -1,10 +1,8 @@
 class PostsController < ApplicationController
   skip_before_action :login_required, only: [:top, :index, :show]
-  before_action :set_select_values, only: [:top, :index, :new, :create, :edit]
+  before_action :set_select_values, only: [:index, :new, :create, :edit]
 
   def top
-    @q = Post.with_attached_photo.ransack(params[:q])
-    @posts = @q.result.page(params[:page])
   end
 
   def index

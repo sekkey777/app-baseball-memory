@@ -153,7 +153,6 @@ body {
   @media (max-width: 576px) {
     font-size: 14px;
   }
-
 }
 
 .top-page-title {
@@ -171,6 +170,33 @@ body {
   font-weight: bold;
   @media (max-width: 576px) {
     font-size: 14px;
+  }
+}
+
+.top-page-red {
+  color: $primary-color-red;
+  font-size: 40px;
+  font-weight: bold;
+  @media (max-width: 576px) {
+    font-size: 25px;
+  }
+}
+
+.top-page-blue {
+  color: $primary-color-bule;
+  font-size: 40px;
+  font-weight: bold;
+  @media (max-width: 576px) {
+    font-size: 25px;
+  }
+}
+
+.top-page-green {
+  color: $primary-color-green;
+  font-size: 30px;
+  font-weight: bold;
+  @media (max-width: 576px) {
+    font-size: 18px;
   }
 }
 
