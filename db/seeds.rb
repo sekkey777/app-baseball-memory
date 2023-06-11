@@ -49,9 +49,11 @@ BaseballPark.create!(baseball_parks.map { |name| { name: name } })
 p '=========================== CREATE CATEGORIES ==========================='
 
 categories = %W(
+  ハイライト
+  思い出
+  あなたのMVP
   グルメ
   座席からの風景
-  あなたのMVP
   その他
 )
 
