@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Sessions', type: :system do
   let(:user) { create(:user) }
-  
+
   describe 'ログインページ' do
     context '正常なログイン、ログアウトができること' do
       before do
@@ -16,7 +16,7 @@ RSpec.describe 'Sessions', type: :system do
         expect(page).to have_content(user.name)
         expect(page).to have_current_path(posts_path)
       end
-      
+
       it 'ログアウトできること' do
         click_on 'ログアウト'
         expect(page).to have_content('ログアウトしました。')
@@ -80,10 +80,10 @@ RSpec.describe 'Sessions', type: :system do
         expect(page).to have_current_path(login_path)
       end
     end
-    
+
     context '異常な値でログインした場合、失敗すること' do
       before { visit login_path }
-      
+
       it '無効なユーザー名でログインした際、ログインに失敗してログインページにリダイレクトすること' do
         fill_in 'ユーザー名', with: user.name + '1'
         fill_in 'パスワード', with: user.password
@@ -91,7 +91,7 @@ RSpec.describe 'Sessions', type: :system do
         expect(page).to have_content('ログインに失敗しました。ユーザー名、またはパスワードが違います。')
         expect(page).to have_current_path(login_path)
       end
-  
+
       it '無効なユーザー名でログインした際、ログインに失敗してログインページにリダイレクトすること' do
         fill_in 'ユーザー名', with: user.name
         fill_in 'パスワード', with: user.password + '1'

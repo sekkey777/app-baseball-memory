@@ -4,7 +4,6 @@ RSpec.describe 'Applications', type: :system do
   let(:user) { create(:user) }
 
   describe 'ヘッダー' do
-
     context 'ログイン前のヘッダーボタンが正常に機能すること' do
       before do
         visit login_path
@@ -13,7 +12,7 @@ RSpec.describe 'Applications', type: :system do
       it 'トップページに遷移できること' do
         expect(page).to have_current_path(root_path)
       end
-      
+
       it '投稿一覧ページに遷移できること' do
         click_on '投稿'
         expect(page).to have_current_path(posts_path)
@@ -42,7 +41,7 @@ RSpec.describe 'Applications', type: :system do
         click_on '思い出を投稿'
         expect(page).to have_current_path(new_post_path)
       end
-      
+
       it '思い出一覧ページに遷移でること' do
         click_on '思い出一覧'
         expect(page).to have_current_path(my_posts_path)

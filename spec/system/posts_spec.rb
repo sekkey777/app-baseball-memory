@@ -37,9 +37,15 @@ RSpec.describe 'Posts', type: :system do
     let!(:baseball_park2) { create(:baseball_park, name: 'Park2') }
     let!(:category1) { create(:category, name: 'Category1') }
     let!(:category2) { create(:category, name: 'Category2') }
-    let!(:post1) { create(:post, title: 'Post1', baseball_team: baseball_team1, baseball_park: baseball_park1, category: category1) }
-    let!(:post2) { create(:post, title: 'Post2', baseball_team: baseball_team2, baseball_park: baseball_park2, category: category2) }
-    let!(:post3) { create(:post, title: 'Post3', baseball_team: baseball_team1, baseball_park: baseball_park1, category: category1) }
+    let!(:post1) do
+      create(:post, title: 'Post1', baseball_team: baseball_team1, baseball_park: baseball_park1, category: category1)
+    end
+    let!(:post2) do
+      create(:post, title: 'Post2', baseball_team: baseball_team2, baseball_park: baseball_park2, category: category2)
+    end
+    let!(:post3) do
+      create(:post, title: 'Post3', baseball_team: baseball_team1, baseball_park: baseball_park1, category: category1)
+    end
     before { visit root_path }
 
     it 'タイトルの検索が正しく機能すること' do
@@ -122,6 +128,5 @@ RSpec.describe 'Posts', type: :system do
       expect(page).to have_content('タイトル は80文字以下で入力してください')
       expect(page).to have_content('投稿内容 は1000文字以下で入力してください')
     end
-
   end
 end
