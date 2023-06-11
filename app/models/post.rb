@@ -31,7 +31,7 @@ class Post < ApplicationRecord
   validates :title, presence: true, length: { maximum: 80 }
   validates :content, presence: true, length: { maximum: 1000 }
   validates :photo, presence: true
-  validate :photo_type, :photo_size
+  validate :photo_type
   belongs_to :user
 
   belongs_to :baseball_team
@@ -41,8 +41,10 @@ class Post < ApplicationRecord
   has_one_attached :photo
 
   def photo_type
-    if !photo.blob.content_type.in?(%('image/jpeg image/png'))
-      errors.add(:photos, 'はjpegまたはpng形式でアップロードしてください')
+    if photo.attached?
+      if !photo.blob.content_type.in?(%('image/jpeg image/png'))
+        errors.add(:photos, 'はjpegまたはpng形式でアップロードしてください')
+      end
     end
   end
 

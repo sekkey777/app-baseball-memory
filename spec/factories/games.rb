@@ -40,6 +40,5 @@ FactoryBot.define do
     association :user
     home_team_score { 4 }
     away_team_score { 2 }
-    photos { Rack::Test::UploadedFile.new(Rails.root.join('spec', 'images', 'test_image.jpg'), 'image/jpeg') }
   end
 end

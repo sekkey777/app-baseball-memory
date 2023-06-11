@@ -32,7 +32,6 @@ RSpec.describe "Games", type: :system do
       fill_in '試合日程', with: DateTime.now
       select game.baseball_park.name, from: '球場'
       fill_in '観戦記録', with: game.memo
-      attach_file('game_photo', Rails.root.join('spec/images/test_image.jpg'))
       click_on '記録する'
       expect(page).to have_current_path(games_path)
       expect(page).to have_content('正常に記録しました')

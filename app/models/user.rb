@@ -22,7 +22,7 @@ class User < ApplicationRecord
 
   validates :name, presence: true, length: { in: 8..20, allow_blank: true }, uniqueness: { case_sensitive: false },
                    unless: :guest?
-  validates :email, presence: true, length: { maximum: 255, allow_blank: true }, format: { with: VALID_EMAIL_REGEX, allow_blank: true },
+  validates :email, length: { maximum: 255, allow_blank: true }, format: { with: VALID_EMAIL_REGEX, allow_blank: true },
                     uniqueness: { case_sensitive: false }
   validates :password, presence: true, length: { minimum: 8, allow_blank: true }, allow_nil: true,
                        format: { with: VALID_PASSWORD_REGEX, message: 'は英数字と記号を含めて下さい' }, unless: :guest?
