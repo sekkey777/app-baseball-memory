@@ -66,11 +66,17 @@ ja:
         created_at: 登録日
         updated_at: 更新日
     errors:
+      models:
+        user:
+          attributes:
+            password_confirmation:
+              confirmation: "とパスワードが一致しません"
       messages:
         invalid: "が正しくありません"
         blank: "を入力してください"
         required: "は必須です"
         too_short: "は%{count}文字以上で入力してください"
+        too_long: "は%{count}文字以下で入力してください"
 
   date:
     formats:

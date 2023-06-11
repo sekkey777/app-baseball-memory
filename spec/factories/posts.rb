@@ -28,8 +28,8 @@
 #
 FactoryBot.define do
   factory :post do
-    title { 'test_title' }
-    content { 'test_content' }
+    sequence(:title) { |n| "test_title#{n}" }
+    sequence(:content) { |n| "test_content#{n}" }
     photo { Rack::Test::UploadedFile.new(Rails.root.join('spec', 'images', 'test_image.jpg'), 'image/jpeg') }
     association :user
     association :baseball_team

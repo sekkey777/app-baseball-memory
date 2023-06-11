@@ -26,7 +26,7 @@ class MyPostsController < ApplicationController
 
   def destroy
     if @post.destroy
-      flash[:danger] = "「#{@post.title}」投稿を削除しました"
+      flash[:danger] = "投稿「#{@post.title}」を削除しました"
       redirect_to my_posts_path
     else
       flash.now[:danger] = '削除に失敗しました。'

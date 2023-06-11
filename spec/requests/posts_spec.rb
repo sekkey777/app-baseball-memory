@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe 'Posts', type: :request do
-  let!(:post) { create(:post) }
-
   describe '投稿関連画面への遷移' do
+    let!(:post) { create(:post) }
+
     it 'ホーム画面に遷移できること' do
       get root_path
       expect(response).to have_http_status(:success)
@@ -46,6 +46,15 @@ RSpec.describe 'Posts', type: :request do
     it '投稿編集画面に遷移できずに、ログイン画面に遷移すること' do
       get edit_my_post_path(post)
       expect(response).to redirect_to(login_path)
+    end
+  end
+
+  describe 'トップページに表示される投稿の数が制御されていること' do
+    let!(:post) { create_list(:post, 11) }
+
+    it 'トップページに表示される投稿の最大数が10であること' do
+      get root_path
+      expect(assigns(:posts).count).to eq(10)
     end
   end
 end
