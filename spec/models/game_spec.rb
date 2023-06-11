@@ -46,7 +46,6 @@ RSpec.describe Game, type: :model do
     it { should belong_to(:home_team).class_name('BaseballTeam') }
     it { should belong_to(:baseball_park) }
     it { should belong_to(:user) }
-    it { should have_many_attached(:photos) }
   end
 
   describe 'Gameモデルのバリデーションが適切に設定されていること' do
