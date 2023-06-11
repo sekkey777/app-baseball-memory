@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Games", type: :system do
+RSpec.describe 'Games', type: :system do
   let(:user) { create(:user) }
   let!(:baseball_team1) { create(:baseball_team, name: 'Team1') }
   let!(:baseball_team2) { create(:baseball_team, name: 'Team2') }
