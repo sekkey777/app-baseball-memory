@@ -90,7 +90,7 @@ class Game < ApplicationRecord
     when 'lose'
       'win'
     when 'draw'
-      "draw"
+      'draw'
     else
       'scheduled'
     end

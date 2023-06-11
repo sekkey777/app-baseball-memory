@@ -38,6 +38,6 @@ class User < ApplicationRecord
   end
 
   def guest?
-    name == "guest_user"
+    name == 'guest_user'
   end
 end
