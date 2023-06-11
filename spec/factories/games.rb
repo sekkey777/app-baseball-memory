@@ -33,11 +33,13 @@
 FactoryBot.define do
   factory :game do
     date { DateTime.now }
-    memo { "Test memo" }
+    sequence(:memo) { |n| "test_memo#{n}" }
     association :home_team, factory: :baseball_team
     association :away_team, factory: :baseball_team
     association :baseball_park
     association :user
+    home_team_score { 4 }
+    away_team_score { 2 }
     photos { Rack::Test::UploadedFile.new(Rails.root.join('spec', 'images', 'test_image.jpg'), 'image/jpeg') }
   end
 end
