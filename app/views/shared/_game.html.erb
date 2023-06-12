@@ -7,23 +7,23 @@
         </div>
         <%= render partial: 'shared/error_messages', locals: { value: @game }%>
         <div class='row justify-content-center mb-sm-3 text-center'>
-          <div class='col-xl-5 shadow-sm p-3 p-sm-5 mb-2 m-sm-4'>
+          <div class='col-md-5 shadow-sm p-3 p-sm-5 mb-2 m-sm-4'>
             <div class='game-green'><%= f.label :home_team_id, t('activerecord.attributes.game.home_team'), class: 'col-form-label' %></div>
             <div class='mb-2'><%= f.collection_select(:home_team_id, baseball_teams, :id, :name, {:include_blank => true}, class: 'form-select') %></div>
             <div class=''><%= f.number_field :home_team_score, class: 'form-control', placeholder: '応援チームの得点を入力してください' %></div>
           </div>
-          <div class='col-xl-5 shadow-sm p-3 p-sm-5 mb-2 m-sm-4'>
+          <div class='col-md-5 shadow-sm p-3 p-sm-5 mb-2 m-sm-4'>
             <div class='game-draw'><%= f.label :away_team_id, t('activerecord.attributes.game.away_team'), class: 'col-form-label' %></div>
             <div class='mb-2'><%= f.collection_select(:away_team_id, baseball_teams, :id, :name, {:include_blank => true}, class: 'form-select') %></div>
             <div class=''><%= f.number_field :away_team_score, class: 'form-control', placeholder: '対戦チームの得点を入力してください' %></div>
           </div>
         </div>
         <div class='row justify-content-center'>
-          <div class='col-xl-5 px-1 px-sm-5 mx-sm-4 mb-2 mb-sm-5 text-center'>
+          <div class='col-md-5 px-1 px-sm-5 mx-sm-4 mb-2 mb-sm-5 text-center'>
             <div class='game-draw'><%= f.label :date, t('activerecord.attributes.game.date'), class: 'col-form-label' %></div>
             <div class='mb-2'><%= f.date_field :date, class: 'form-control' %></div>
           </div>
-          <div class='col-xl-5 px-1 px-sm-5 mx-sm-4 mb-2 mb-sm-5 text-center'>
+          <div class='col-md-5 px-1 px-sm-5 mx-sm-4 mb-2 mb-sm-5 text-center'>
             <div class='game-draw'><%= f.label :baseball_park_id, t('activerecord.attributes.game.baseball_park'), class: 'col-form-label' %></div>
             <div class='mb-2'><%= f.collection_select(:baseball_park_id, baseball_parks, :id, :name, {:include_blank => true}, class: 'form-select') %></div>
           </div>
