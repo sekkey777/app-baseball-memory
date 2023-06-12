@@ -1,13 +1,13 @@
 <div class='conteiner'>
   <div class='row justify-content-center'>
-    <div class='col-sm-10 shadow-sm text-main bg-sub-color-gray p-5 mt-sm-5 mb-3'>
+    <div class='col-lg-10 shadow-sm text-main bg-sub-color-gray p-5 mt-sm-5 mb-3'>
       <div class='mb-sm-4'> 
         <h3 class='col-auto'><span class='display-5'>| </span><%= current_user.name %></h3>
       </div>
       <div class='row mb-1 mb-sm-3 justify-content-center'>
-        <div class='col-sm-4 text-center shadow-sm win_percentage'>勝率 <span class='number-size'><%= @games.win_percentage %></span> %</div>
+        <div class='col-lg-4 text-center shadow-sm win_percentage'>勝率 <span class='number-size'><%= @games.win_percentage %></span> %</div>
         <% sequence_type, sequence_count = @games.current_sequence %>
-        <div class='col-sm-4 text-center shadow-sm <%= sequence_type %>-sequence'>
+        <div class='col-lg-4 text-center shadow-sm <%= sequence_type %>-sequence'>
           <% if sequence_type == 'win' %>
             <span class='number-size'><%= sequence_count %></span> 連勝中
           <% elsif sequence_type == 'lose' %>
@@ -20,19 +20,19 @@
         </div>
       </div> 
       <div class='row justify-content-center'>
-        <div class='col-sm-2'>
+        <div class='col-xl-2'>
           <div class='game-green text-center'>ALL GAMES</div>
           <div class='green-line text-center'><%= @games.count %></div>
         </div>
-        <div class='col-sm-2'>
+        <div class='col-xl-2'>
           <div class='game-win text-center'>WIN</div>
           <div class='win-line text-center'><%= @games.win_count %></div>
         </div>
-        <div class='col-sm-2'>
+        <div class='col-xl-2'>
           <div class='game-lose text-center'>LOSE</div>
           <div class='lose-line text-center'><%= @games.lose_count %></div>
         </div>
-        <div class='col-sm-2'>
+        <div class='col-xl-2'>
           <div class='game-draw text-center'>DRAW</div>
           <div class='draw-line text-center'><%= @games.draw_count %></div>
         </div>
