@@ -3,10 +3,10 @@
     <div class='row mb-3 mb-sm-5 shadow-sm p-4'>
       <div class='col-lg-7'>
         <div class='row mb-sm-3'>
-          <div class='col-1 fs-1'>
+          <div class='col-1 me-sm-3 fs-1'>
             <i class='bi bi-person-circle'></i>
           </div>
-          <div class='col-11 text-user-name'>
+          <div class='col-sm-10 text-user-name'>
             <div id='test-post'><%= post.user.name %></div>
             <div><%= l post.updated_at %></div>
           </div>
@@ -24,11 +24,11 @@
       <div class='col-lg-5'>
         <%= image_tag post.photo.variant(resize_to_limit: [nil, 400]), class: 'img-fluid' if post.photo.attached? %>
       </div>
-      <div class='mt-3 d-flex flex-column flex-sm-row align-items-center'>
-        <span class='me-sm-1' id="like-<%= post.id %>"><%= render partial: 'shared/like', locals: { post: post } %></span>
-        <span class='me-sm-1'><i class='bi bi-hash'></i><%= post.baseball_team.name %></span>
-        <span class='me-sm-1'><i class='bi bi-hash'></i><%= post.baseball_park.name %></span>
-        <span class='me-sm-1'><i class='bi bi-hash'></i><%= post.category.name %></span>
+      <div class='mt-3 d-flex flex-column flex-md-row align-items-center'>
+        <span class='me-md-1' id="like-<%= post.id %>"><%= render partial: 'shared/like', locals: { post: post } %></span>
+        <span class='me-md-1'><i class='bi bi-hash'></i><%= post.baseball_team.name %></span>
+        <span class='me-md-1'><i class='bi bi-hash'></i><%= post.baseball_park.name %></span>
+        <span class='me-md-1'><i class='bi bi-hash'></i><%= post.category.name %></span>
       </div>
     </div>
   </div>

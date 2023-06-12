@@ -1,35 +1,35 @@
 <%= form_with(model: game, local: true) do |f| %>
   <div class='conteiner'>
     <div class='row justify-content-center'>
-      <div class='col-sm-8 shadow-sm text-main bg-sub-color-gray p-5 mt-sm-5 mb-3'>
+      <div class='col-xl-8 shadow-sm text-main bg-sub-color-gray p-5 mt-sm-5 mb-3'>
         <div class='mb-sm-4'> 
           <h3 class='col-auto'><span class='display-5'>| </span>観戦記録をつける</h3>
         </div>
         <%= render partial: 'shared/error_messages', locals: { value: @game }%>
         <div class='row justify-content-center mb-sm-3 text-center'>
-          <div class='col-sm-5 shadow-sm p-3 p-sm-5 mb-2 m-sm-4'>
+          <div class='col-md-5 shadow-sm p-3 p-sm-5 mb-2 m-sm-4'>
             <div class='game-green'><%= f.label :home_team_id, t('activerecord.attributes.game.home_team'), class: 'col-form-label' %></div>
             <div class='mb-2'><%= f.collection_select(:home_team_id, baseball_teams, :id, :name, {:include_blank => true}, class: 'form-select') %></div>
             <div class=''><%= f.number_field :home_team_score, class: 'form-control', placeholder: '応援チームの得点を入力してください' %></div>
           </div>
-          <div class='col-sm-5 shadow-sm p-3 p-sm-5 mb-2 m-sm-4'>
+          <div class='col-md-5 shadow-sm p-3 p-sm-5 mb-2 m-sm-4'>
             <div class='game-draw'><%= f.label :away_team_id, t('activerecord.attributes.game.away_team'), class: 'col-form-label' %></div>
             <div class='mb-2'><%= f.collection_select(:away_team_id, baseball_teams, :id, :name, {:include_blank => true}, class: 'form-select') %></div>
             <div class=''><%= f.number_field :away_team_score, class: 'form-control', placeholder: '対戦チームの得点を入力してください' %></div>
           </div>
         </div>
         <div class='row justify-content-center'>
-          <div class='col-sm-5 px-1 px-sm-5 mx-sm-4 mb-2 mb-sm-5 text-center'>
+          <div class='col-md-5 px-1 px-sm-5 mx-sm-4 mb-2 mb-sm-5 text-center'>
             <div class='game-draw'><%= f.label :date, t('activerecord.attributes.game.date'), class: 'col-form-label' %></div>
             <div class='mb-2'><%= f.date_field :date, class: 'form-control' %></div>
           </div>
-          <div class='col-sm-5 px-1 px-sm-5 mx-sm-4 mb-2 mb-sm-5 text-center'>
+          <div class='col-md-5 px-1 px-sm-5 mx-sm-4 mb-2 mb-sm-5 text-center'>
             <div class='game-draw'><%= f.label :baseball_park_id, t('activerecord.attributes.game.baseball_park'), class: 'col-form-label' %></div>
             <div class='mb-2'><%= f.collection_select(:baseball_park_id, baseball_parks, :id, :name, {:include_blank => true}, class: 'form-select') %></div>
           </div>
           <div class='row mb-5'>
-            <div class='col-sm-2'><%= f.label :memo, t('activerecord.attributes.game.memo'), class: 'col-form-label' %></div>
-            <div class='col-sm-8'><%= f.text_area :memo, rows: 8, class: 'form-control' %></div>
+            <div class='col-md-2'><%= f.label :memo, t('activerecord.attributes.game.memo'), class: 'col-form-label' %></div>
+            <div class='col-md-8'><%= f.text_area :memo, rows: 8, class: 'form-control' %></div>
           </div>
           <div class='d-grid col-8 mx-auto mb-3'>
             <%= f.submit '記録する', class: 'btn-primary-red'%>
