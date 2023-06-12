@@ -8,19 +8,19 @@
         <div class='col-sm-4'><%= t('activerecord.attributes.user.name') %></div>
         <div class='col-sm-8'><%= @user.name %></div>
       </div>
-      <div class='row mb-5'>
-        <div class='col-sm-4'><%= t('activerecord.attributes.user.email') %></div>
-        <div class='col-sm-8'><%= @user.email %></div>
-      </div>
-      <div class='row mb-5'>
-        <div class='col-sm-4'><%= t('activerecord.attributes.user.password') %></div>
-        <div class='col-sm-8'>xxxxxxxx</div>
-      </div>
-        <% if !(session[:guest] == 'guest_user') %>
-          <div class='d-grid col-12 mx-auto'>
-            <%= link_to '変更する　＞', edit_user_path(@user), class: 'btn-primary-green' %>
-          </div>
-        <% end %>
+      <% if !(session[:guest] == 'guest_user') %>
+        <div class='row mb-5'>
+          <div class='col-sm-4'><%= t('activerecord.attributes.user.email') %></div>
+          <div class='col-sm-8'><%= @user.email %></div>
+        </div>
+        <div class='row mb-5'>
+          <div class='col-sm-4'><%= t('activerecord.attributes.user.password') %></div>
+          <div class='col-sm-8'>xxxxxxxx</div>
+        </div>
+        <div class='d-grid col-12 mx-auto'>
+          <%= link_to '変更する　＞', edit_user_path(@user), class: 'btn-primary-green' %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
