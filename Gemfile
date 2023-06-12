@@ -23,16 +23,26 @@ gem 'jbuilder', '~> 2.7'
 gem 'bcrypt', '~> 3.1.7'
 
 # Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  # デバッグ関連
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry-rails'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  # テスト関連
   gem 'rspec-rails'
   gem 'factory_bot_rails'
+  gem 'shoulda-matchers'
+  gem 'rails-controller-testing'
+  gem 'capybara'
+  gem 'selenium-webdriver'
+
 end
 
 group :development do
@@ -40,20 +50,26 @@ group :development do
   gem 'web-console', '>= 4.1.0'
   # Display performance information such as SQL time and flame graphs for each request in your browser.
   # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
-  gem 'rack-mini-profiler', '~> 2.0'
+  gem 'rack-mini-profiler', '~> 2.0', require: false
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-
-  gem 'pry-rails'
   gem 'solargraph'
-  gem 'better_errors'
-  gem 'binding_of_caller'
+  # スキーマ情報の書き出し
   gem 'annotate'
-
+  # コード整形
+  gem 'rubocop-airbnb'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+# CSSフレームワーク
 gem 'bootstrap'
+# 検索
+gem 'ransack'
+# ページネーション
+gem 'kaminari'
+gem 'bootstrap5-kaminari-views', '~> 0.0.1'
+# カレンダー表示
+gem 'simple_calendar', '~> 2.4'

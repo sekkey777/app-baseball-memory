@@ -49,12 +49,67 @@ BaseballPark.create!(baseball_parks.map { |name| { name: name } })
 p '=========================== CREATE CATEGORIES ==========================='
 
 categories = %W(
+  ハイライト
+  思い出
+  あなたのMVP
   グルメ
   座席からの風景
-  あなたのMVP
   その他
 )
 
 Category.create!(categories.map { |name| { name: name } })
+
+p '=========================== CREATE USERS ==========================='
+
+5.times do |i|
+  User.create(name: "username#{i}", password: "password+#{i}", email: "username#{i}@email.com")
+end
+
+p '=========================== CREATE POSTS ==========================='
+
+4.times do |i|
+  11.times do |j|
+    post = Post.create(
+      title: "#{j + 1}番目の投稿です。" * 5,
+      content: 'テストです。' * 50,
+      user_id: i,
+      baseball_team_id: (j + 1),
+      baseball_park_id: (j + 1),
+      category_id: (i + 1)
+    )
+    file_name = "image#{i * 11 + j + 1}.jpg"
+    file_path = Rails.root.join('app', 'assets', 'images', 'baseball-park-dummy-data.jpg')
+    post.photo.attach(io: File.open(file_path), filename: 'baseball-park-dummy-data.jpg', content_type: 'image/jpeg')
+    post.save
+  end
+end
+
+p '=========================== CREATE GAMES ==========================='
+
+4.times do |i|
+  10.times do |j|
+    home_team_score = rand(16)
+    away_team_score = rand(16)
+    
+    result = if home_team_score > away_team_score
+               'win'
+             elsif home_team_score < away_team_score
+               'lose'
+             else
+               'draw'
+             end
+    Game.create(
+      date: "2023-05-#{j + 1}",
+      memo: "#{j + 1}番目の投稿です。" * 5,
+      home_team_id: (j + 1),
+      away_team_id: (j + 2),
+      baseball_park_id: (j + 1),
+      user_id: j,
+      home_team_score: home_team_score,
+      away_team_score: away_team_score,
+      result: result
+    )
+  end
+end
 
 p '=========================== END ==========================='

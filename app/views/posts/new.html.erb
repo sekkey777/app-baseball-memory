@@ -1,0 +1,39 @@
+<div class='conteiner'>
+  <div class='row justify-content-center'>
+    <div class='col-sm-10 shadow-sm text-main bg-sub-color-gray p-5 my-sm-5'>
+      <div class='mb-sm-5'> 
+        <h3 class='col-auto'><span class='display-5'>| </span>思い出を投稿する</h3>
+      </div> 
+      <%= form_with(model: @post, local: true) do |f| %>
+        <%= render partial: 'shared/error_messages', locals: { value: @post }%>
+        <div class='row mb-5'>
+          <div class='col-sm-3'><%= f.label :title, t('activerecord.attributes.post.title'), class: 'col-form-label' %></div>
+          <div class='col-sm-9'><%= f.text_field :title, class: 'form-control' %></div>
+        </div>
+        <div class='row mb-5'>
+          <div class='col-sm-3'><%= f.label :baseball_team_id, t('activerecord.attributes.post.baseball_team'), class: 'col-form-label' %></div>
+          <div class='col-sm-9'><%= f.collection_select(:baseball_team_id, @baseball_teams, :id, :name, {:include_blank => true}, class: 'form-select') %></div>
+        </div>
+        <div class='row mb-5'>
+          <div class='col-sm-3'><%= f.label :baseball_park_id, t('activerecord.attributes.post.baseball_park'), class: 'col-form-label' %></div>
+          <div class='col-sm-9'><%= f.collection_select(:baseball_park_id, @baseball_parks, :id, :name, {:include_blank => true}, class: 'form-select') %></div>
+        </div>
+        <div class='row mb-5'>
+          <div class='col-sm-3'><%= f.label :category_id, t('activerecord.attributes.post.category'), class: 'col-form-label' %></div>
+          <div class='col-sm-9'><%= f.collection_select(:category_id, @categories, :id, :name, {:include_blank => true}, class: 'form-select') %></div>
+        </div>
+        <div class='row mb-5'>
+          <div class='col-sm-3'><%= f.label :content, t('activerecord.attributes.post.content'), class: 'col-form-label' %></div>
+          <div class='col-sm-9'><%= f.text_area :content, rows: 8, class: 'form-control' %></div>
+        </div>
+        <div class='row mb-5'>
+          <div class='col-sm-3'><%= f.label :photo, t('activerecord.attributes.post.photo'), class: 'col-form-label' %></div>
+          <div class='col-sm-9'><%= f.file_field :photo, rows: 8, class: 'form-control' %></div>
+        </div>
+        <div class='d-grid col-12 mx-auto mb-3'>
+          <%= f.submit '投稿する', class: 'btn-primary-red'%>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

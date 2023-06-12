@@ -1,0 +1,24 @@
+<div class='conteiner w-sm-50'>
+  <div class='row justify-content-center'>
+    <div class='col-lg-6 shadow-sm text-main bg-sub-color-gray p-5 my-sm-5'>
+      <div class='mb-5'> 
+        <h3 class='col-auto'><span class='display-5'>| </span>ログイン</h3>
+      </div> 
+
+      <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
+        <div class='row mb-5'>
+          <div class='col-sm-3'><%= f.label :name, 'ユーザー名', class: 'col-form-label' %></div>
+          <div class='col-sm-9'><%= f.text_field :name, class: 'form-control' %></div>
+        </div>
+        <div class='row mb-5'>
+          <div class='col-sm-3'><%= f.label :password, 'パスワード', class: 'col-form-label' %></div>
+          <div class='col-sm-9'><%= f.password_field :password, class: 'form-control' %></div>
+        </div>
+        <div class='d-grid col-12 mx-auto, mb-3'>
+          <%= f.submit 'ログインする', class: 'btn-primary-red'%>
+        </div>
+      <% end %>
+      <div>アカウントをお持ちでない方は、<%= link_to 'アカウント登録', new_user_path, class: 'link-text' %>するか、<%= link_to 'ゲストログイン', login_path(guest_login: true), method: :post, class: 'link-text' %>をお使いください。</div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,578 @@
+$primary-color-green: #3C899A;
+$second-color-green: #B9CCD0;
+
+$primary-color-red: #9A3C64;
+$second-color-red: #DCC7D0;
+$third-color-red: #FFF8F8;
+
+$primary-color-bule: #3C469A;
+$second-color-blue: #B2B5D1;
+$third-color-blue: #F5F6FF;
+
+$primary-color-gray: #717171;
+$second-color-gray: #D7D7D7;
+$third-color-gray: #FDFDFD;
+
+// =======================================
+// ヘッダー
+// =======================================
+.header-left-btn {
+  @extend .btn !optional;
+  color: $primary-color-green;
+  font-weight: 800;
+  border-radius: 0px;
+  border: none;
+  border-bottom: $third-color-gray solid 2px;
+  &:hover,
+  &:active {
+    border-bottom: $primary-color-green solid 2px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    color: $primary-color-green !important;
+  }
+}
+
+// =======================================
+// フッター
+// =======================================
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  padding-bottom: 80px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+
+// =======================================
+// ボタン
+// =======================================
+.btn-primary-red {
+  @extend .btn !optional;
+  background-color: $primary-color-red;
+  border: $primary-color-red;
+  color: $third-color-gray;
+  &:hover {
+    background-color: $second-color-red;
+    color: $primary-color-red;
+  }
+}
+
+.btn-primary-gray {
+  @extend .btn !optional;
+  background-color: $primary-color-gray;
+  border: $primary-color-gray;
+  color: $third-color-gray;
+  &:hover {
+    background-color: $second-color-gray;
+    color: $primary-color-gray;
+  }
+}
+
+.btn-primary-blue {
+  @extend .btn !optional;
+  background-color: $primary-color-bule;
+  border: $primary-color-bule;
+  color: $third-color-gray;
+  &:hover {
+    background-color: $second-color-blue;
+    color: $primary-color-bule;
+  }
+}
+
+.btn-primary-green {
+  @extend .btn !optional;
+  background-color: $primary-color-green;
+  border: $primary-color-green;
+  color: $third-color-gray;
+  &:hover,
+  &:active {
+    background-color: $second-color-green !important;
+    color: $primary-color-green !important;
+  }
+}
+
+// トップページ用のボタン
+.btn-primary-green-sizeup {
+  @extend .btn !optional;
+  background-color: $primary-color-green;
+  border: $primary-color-green;
+  color: $third-color-gray;
+  &:hover,
+  &:active {
+    background-color: $primary-color-green;
+    border: $primary-color-green;
+    color: $third-color-gray;
+    transform: scale(1.1, 1.1);
+  }
+}
+
+// トップページ用のボタン
+.btn-second-green {
+  @extend .btn !optional;
+  background-color: $third-color-gray;
+  border: $primary-color-green solid 2px;
+  color: $primary-color-green;
+  &:hover,
+  &:active {
+    background-color: $third-color-gray;
+    border: $primary-color-green solid 2px;
+    color: $primary-color-green;
+    transform: scale(1.1, 1.1);
+  }
+}
+
+// =======================================
+// テキスト
+// =======================================
+.text-main {
+  color: $primary-color-green;
+  @media (max-width: 576px) {
+    font-size: 14px;
+  }
+}
+
+.text-user-name {
+  font-size: 25px;
+  @media (max-width: 576px) {
+    font-size: 18px;
+  }
+}
+
+.text-main-red {
+  color: $primary-color-red;
+  @media (max-width: 576px) {
+    font-size: 14px;
+  }
+}
+
+.top-page-title {
+  font-family: 'Rowdies', cursive;
+  color: $primary-color-red;
+  font-size: 100px;
+  @media (max-width: 1200px) {
+    font-size: 60px;
+  }
+  @media (max-width: 768px) {
+    font-size: 45px;
+  }
+  @media (max-width: 576px) {
+    font-size: 30px;
+  }
+}
+
+.top-page-sub-text {
+  font-family: 'Rowdies', cursive;
+  font-size: 30px;
+  font-weight: bold;
+  @media (max-width: 1200px) {
+    font-size: 25px;
+  }
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
+  @media (max-width: 576px) {
+    font-size: 14px;
+  }
+}
+
+.top-page-red {
+  color: $primary-color-red;
+  font-size: 40px;
+  font-weight: bold;
+  @media (max-width: 1200px) {
+    font-size: 30px;
+  }
+  @media (max-width: 576px) {
+    font-size: 25px;
+  }
+}
+
+.top-page-blue {
+  color: $primary-color-bule;
+  font-size: 40px;
+  font-weight: bold;
+  @media (max-width: 1200px) {
+    font-size: 30px;
+  }
+  @media (max-width: 576px) {
+    font-size: 25px;
+  }
+}
+
+.top-page-green {
+  color: $primary-color-green;
+  font-size: 30px;
+  font-weight: bold;
+  @media (max-width: 1200px) {
+    font-size: 25px;
+  }
+  @media (max-width: 576px) {
+    font-size: 18px;
+  }
+}
+
+.link-text {
+  text-decoration: none;
+}
+
+// =======================================
+// 背景
+// =======================================
+.bg-sub-color-gray {
+  background-color: $third-color-gray;
+}
+
+.bg-color-clear {
+  background-color: rgba(253,253,253,0.6);
+}
+
+.bg-image {
+  background-image: image-url('baseball-park.jpg');
+  background-size: cover;
+}
+
+// =======================================
+// kaminariのカスタマイズ
+// =======================================
+.page-item {
+  margin-right: 10px;
+  .page-link {
+    background-color: $second-color-green;
+    color: $third-color-gray;
+    @media (max-width: 576px) {
+      font-size: 10px;
+    }
+    &:hover, &:focus {
+      color: #3C899A ;
+      box-shadow: 0 0 0 0.25rem #89aeb8;
+    }
+  }
+}
+
+.page-item.active .page-link {
+  color: $third-color-gray !important;
+  background-color: $primary-color-green !important;
+  border-color: $primary-color-green !important;
+}
+
+// =======================================
+// 画像サイズ
+// =======================================
+.responsive-image {
+  max-width: 100%; /* イメージが親要素の幅に合わせて縮小されるようにします */
+  height: auto; /* イメージのアスペクト比を維持します */
+}
+
+// =======================================
+// 観戦記録　背景色
+// =======================================
+.game-win {
+  background-color: $primary-color-red;
+  border: $primary-color-red;
+  color: $third-color-gray;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.game-lose {
+  background-color: $primary-color-bule;
+  border: $primary-color-bule;
+  color: $third-color-gray;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.game-draw {
+  background-color: $primary-color-gray;
+  border: $primary-color-gray;
+  color: $third-color-gray;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.game-green {
+  background-color: $primary-color-green;
+  border: $primary-color-green;
+  color: $third-color-gray;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.game-scheduled {
+  @extend .game-green !optional;
+}
+
+// =======================================
+// 観戦記録一覧　枠色
+// =======================================
+.win-line {
+  background-color: $third-color-gray;
+  border: $primary-color-red solid 2px;
+  color: $primary-color-red;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.lose-line {
+  background-color: $third-color-gray;
+  border: $primary-color-bule solid 2px;
+  color: $primary-color-bule;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.draw-line {
+  background-color: $third-color-gray;
+  border: $primary-color-gray solid 2px;
+  color: $primary-color-gray;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.green-line {
+  background-color: $third-color-gray;
+  border: $primary-color-green solid 2px;
+  color: $primary-color-green;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+// =======================================
+// 観戦記録一覧　勝率表示
+// =======================================
+.win_percentage {
+  background-color: $third-color-red;
+  color: $primary-color-red;
+  font-size: 60px;
+  border-radius: 10px;
+  margin: 10px;
+  @media (max-width: 1200px) {
+    font-size: 30px;
+  }
+  .number-size {
+    font-size: 100px;
+    @media (max-width: 1200px) {
+      font-size: 50px;
+    }
+  }
+}
+
+// =======================================
+// 観戦記録一覧　連勝記録表示
+// =======================================
+.win-sequence {
+  @extend .win_percentage !optional;
+}
+
+.lose-sequence {
+  background-color: $third-color-blue;
+  color: $primary-color-bule;
+  font-size: 60px;
+  border-radius: 10px;
+  margin: 10px;
+  @media (max-width: 1200px) {
+    font-size: 30px;
+  }
+  .number-size {
+    font-size: 100px;
+    @media (max-width: 1200px) {
+      font-size: 50px;
+    }
+  }
+}
+
+.draw-sequence {
+  background-color: $third-color-gray;
+  color: $primary-color-gray;
+  font-size: 60px;
+  border-radius: 10px;
+  margin: 10px;
+  @media (max-width: 1200px) {
+    font-size: 30px;
+  }
+  .number-size {
+    font-size: 100px;
+    @media (max-width: 1200px) {
+      font-size: 50px;
+    }
+  }
+}
+
+// =======================================
+// 観戦記録一覧　ボタン
+// =======================================
+.btn-win {
+  @extend .btn-primary-red !optional;
+  width: 100px;
+  @media (max-width: 576px) {
+    width: 40px;
+    font-size: 10px;
+  }
+}
+
+.btn-lose {
+  @extend .btn-primary-blue !optional;
+  width: 100px;
+  @media (max-width: 576px) {
+    width: 25px;
+    @media (max-width: 576px) {
+      width: 40px;
+      font-size: 15px;
+    }
+  }
+}
+
+.btn-draw {
+  @extend .btn-primary-gray !optional;
+  width: 100px;
+  @media (max-width: 576px) {
+    width: 40px;
+    font-size: 15px;
+  }
+}
+
+.btn-green {
+  @extend .btn-primary-green !optional;
+  width: 100px;
+}
+
+.btn-scheduled {
+  @extend .btn-primary-green !optional;
+  width: 100px;
+  @media (max-width: 576px) {
+    width: 40px;
+    font-size: 10px;
+  }
+}
+
+// =======================================
+// 観戦記録詳細
+// =======================================
+.win-team {
+  background-color: $third-color-red;
+  color: $primary-color-red;
+  font-size: 23px;
+  border-radius: 10px;
+  margin: 10px;
+  @media (max-width: 576px) {
+    font-size: 15px;
+  }
+  .number-size {
+    font-size: 100px;
+    @media (max-width: 576px) {
+      font-size: 15px;
+    }
+  }
+}
+
+.lose-team {
+  background-color: $third-color-blue;
+  color: $primary-color-bule;
+  font-size: 23px;
+  border-radius: 10px;
+  margin: 10px;
+  @media (max-width: 576px) {
+    font-size: 15px;
+  }
+  .number-size {
+    font-size: 100px;
+    @media (max-width: 576px) {
+      font-size: 15px;
+    }
+  }
+}
+
+.draw-team {
+  background-color: $third-color-gray;
+  color: $primary-color-gray;
+  font-size: 23px;
+  border-radius: 10px;
+  margin: 10px;
+  @media (max-width: 576px) {
+    font-size: 15px;
+  }
+  .number-size {
+    font-size: 100px;
+    @media (max-width: 576px) {
+      font-size: 15px;
+    }
+  }
+}
+
+// =======================================
+// カレンダー
+// =======================================
+.calendar-heading {
+  .btn {
+    @extend .btn-primary-green !optional;
+  }
+  .btn-pale {
+    @extend .btn !optional;
+    background-color: $second-color-green;
+    border: $second-color-green;
+    color: $third-color-gray;
+    width: 100%;
+    &:hover,
+    &:active {
+      background-color: $second-color-green !important;
+      color: $primary-color-green !important;
+    }
+  }
+}
+
+.simple-calendar .day {
+  text-align: center;
+}
+
+// 次月の日付を非表示
+.next-month {
+  display: none;
+}
+
+// 土日の日付色を変更
+.wday-0 {
+  color: $primary-color-red;
+  background-color: $third-color-red !important;
+}
+.wday-6 {
+  color: $primary-color-bule;
+  background-color: $third-color-blue !important;
+} 
+
+// 土日の文字色を変更
+.simple-calendar th:first-child {
+  text-align: center;
+  color: $primary-color-red;
+  background-color: $third-color-red;
+  border-radius: 5px;
+}
+.simple-calendar th:last-child {
+  text-align: center;
+  color: $primary-color-bule;
+  background-color: $third-color-blue;
+}
+
+// 平日の文字背景色を変更
+.simple-calendar th:nth-child(n+2):nth-child(-n+6) {
+  text-align: center;
+  background-color: rgb(243, 243, 243);
+}
+

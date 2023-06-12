@@ -1,0 +1,23 @@
+<%= search_form_for q do |f| %>
+  <div class='container w-sm-50'>
+    <div class='row mb-sm-5'>
+      <div class='col-sm-3'><%= f.label :title_cont, 'タイトル', class: 'col-form-label' %></div>
+      <div class='col-sm-9'><%= f.search_field :title_cont, placeholder: 'キーワードを入力してください', class: 'form-control' %></div>
+    </div>
+    <div class='row mb-sm-5'>
+      <div class='col-sm-3'><%= f.label :baseball_team_id_eq, 'チーム', class: 'col-form-label' %></div>
+      <div class='col-sm-9'><%= f.collection_select :baseball_team_id_eq, baseball_teams, :id, :name, {:include_blank => true}, class: 'form-select' %></div>
+    </div>
+    <div class='row mb-sm-5'>
+      <div class='col-sm-3'><%= f.label :baseball_park_id_eq, '球場', class: 'col-form-label' %></div>
+      <div class='col-sm-9'><%= f.collection_select :baseball_park_id_eq, baseball_parks, :id, :name, {:include_blank => true}, class: 'form-select' %></div>
+    </div>
+    <div class='row mb-5'>
+      <div class='col-sm-3'><%= f.label :category_id_eq, 'カテゴリー', class: 'col-form-label' %></div>
+      <div class='col-sm-9'><%= f.collection_select :category_id_eq, categories, :id, :name, {:include_blank => true}, class: 'form-select' %></div>
+    </div>
+    <div class='d-grid col-12 mx-auto mb-5'>
+      <%= f.submit '検索', class: 'btn-primary-green'%>
+    </div>
+  </div>
+<% end %>

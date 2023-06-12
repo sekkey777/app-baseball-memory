@@ -1,0 +1,29 @@
+<%= form_with(model: user, local: true) do |f| %>
+  <%= render partial: 'shared/error_messages', locals: { value: user }%>
+  <div class='row mb-5'>
+    <div class='col-sm-4'><%= f.label :name, t('activerecord.attributes.user.name'), class: 'col-form-label' %></div>
+    <div class='col-sm-8'><%= f.text_field :name, class: 'form-control' %></div>
+  </div>
+  <div class='row mb-5'>
+    <div class='col-sm-4'><%= f.label :email, t('activerecord.attributes.user.email'), class: 'col-form-label' %></div>
+    <div class='col-sm-8'><%= f.text_field :email, class: 'form-control' %></div>
+  </div>
+  <div class='row mb-5'>
+    <div class='col-sm-4'><%= f.label :password, t('activerecord.attributes.user.password'), class: 'col-form-label' %></div>
+    <div class='col-sm-8'><%= f.password_field :password, class: 'form-control' %></div>
+  </div>
+  <div class='row mb-5'>
+    <div class='col-sm-4'><%= f.label :password_confirmation, t('activerecord.attributes.user.password_confirmation'), class: 'col-form-label' %></div>
+    <div class='col-sm-8'><%= f.password_field :password_confirmation, class: 'form-control' %></div>
+  </div>
+  <% if defined?(new_user) %>
+    <div class='d-grid col-12 mx-auto mb-3'>
+      <%= f.submit '新規登録する', class: 'btn-primary-red'%>
+    </div>
+  <% else %>
+    <div class='row mx-auto'>
+      <%= link_to '＜　戻る', user_path(@user), class: 'btn-primary-gray col-sm-6' %>
+      <%= f.submit '更新', class: 'btn-primary-red col-sm-6'%>
+    </div>
+  <% end %>
+<% end %>

@@ -1,0 +1,32 @@
+<div class='table-responsive'>
+  <table class='table text-nowrap'>
+    <thead>
+      <tr>
+        <th><%= t('activerecord.attributes.game.date') %></th>
+        <th><%= t('activerecord.attributes.game.home_team') %></th>
+        <th><%= t('activerecord.attributes.game.away_team') %></th>
+        <th><%= t('activerecord.attributes.game.baseball_park') %></th>
+        <th><%= t('activerecord.attributes.game.result') %></th>
+        <th><%= t('activerecord.attributes.game.score') %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% games.each do |game| %>
+        <tr class='align-middle'>
+          <td><%= l game.date, format: :date %></td>
+          <td><%= game.home_team.name %></td>
+          <td><%= game.away_team.name %></td>
+          <td><%= game.baseball_park.name %></td>
+          <td>
+            <% if game.result %>
+              <%= link_to result_for_calendar(game.result), game_path(game), class: "btn-#{game.result}" %>
+            <% else %>
+              <%= link_to '＞', game_path(game), class: 'btn-green' %>
+            <% end %>
+          </td>
+          <td><%= game.home_team_score %> - <%= game.away_team_score %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

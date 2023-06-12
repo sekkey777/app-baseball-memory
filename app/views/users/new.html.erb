@@ -1,2 +1,15 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<div class='conteiner w-sm-50'>
+  <div class='row justify-content-center'>
+    <div class='col-xl-6 col-lg-8 shadow-sm text-main bg-sub-color-gray p-5 my-sm-5'>
+      <div class='mb-5'>
+        <h3 class='col-auto'><span class='display-5'>| </span>アカウント登録</h3>
+      </div> 
+
+      <%= render partial: 'shared/user_form', locals: { new_user: true, user: @user } %>
+      <div>
+        アカウントをお持ちの方は、<%= link_to 'ログイン', login_path, class: 'link-text' %>してください。<br>
+        アカウントを作成せずに利用する場合は<%= link_to 'ゲストログイン', login_path(guest_login: true), method: :post, class: 'link-text' %>をお使いください。
+      </div>
+    </div>
+  </div>
+</div>

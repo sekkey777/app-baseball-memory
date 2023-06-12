@@ -1,2 +1,11 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<div class='conteiner w-sm-50'>
+  <div class='row justify-content-center'>
+    <div class='col-xl-6 col-lg-8 shadow-sm text-main bg-sub-color-gray p-5 my-sm-5'>
+      <div class='mb-5'>
+        <h3 class='col-auto'><span class='display-5'>| </span>アカウント設定</h3>
+      </div> 
+
+      <%= render partial: 'shared/user_form', locals: { user: @user } %>
+    </div>
+  </div>
+</div>
