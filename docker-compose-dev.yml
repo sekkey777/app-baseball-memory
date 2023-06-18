@@ -25,6 +25,18 @@ services:
     volumes:
       - mysql-data:/var/lib/mysql
 
+  phpmyadmin:
+    image: phpmyadmin:latest
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOST=db
+      - PMA_USER=root
+      - PMA_PASSWORD=password
+    ports:
+      - 4040:80
+    depends_on:
+      - db
+
 volumes:
   mysql-data:
     driver: local
