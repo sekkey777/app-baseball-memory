@@ -9,13 +9,20 @@
             たくさん野球を観戦して自分の観戦記録や思い出をつけてみよう！
           </h4>
         </div>
-        <div class='row mx-auto mb-sm-3 justify-content-evenly'>
-          <%= link_to '新規登録して観戦記録をつける', new_user_path, class: 'btn-primary-green-sizeup col-lg-4 mb-1' %>
-        </div>
-        <div class='row mx-auto mb-sm-3 justify-content-evenly'>
-          <%= link_to 'ログインはこちら', login_path, class: 'btn-second-green col-lg-4 mb-1' %>
-          <%= link_to 'ゲストログインはこちら', login_path(guest_login: true), method: :post, class: 'btn-second-green col-lg-4 mb-1' %>
-        </div>
+        <% if logged_in? %>
+          <div class='row mx-auto mb-sm-5 justify-content-evenly'>
+            <%= link_to '思い出を投稿する', new_user_path, class: 'btn-second-green col-lg-4 mb-1' %>
+            <%= link_to '観戦記録をつける', new_game_path, class: 'btn-second-green col-lg-4 mb-1' %>
+          </div>
+        <% else %>
+          <div class='row mx-auto mb-sm-3 justify-content-evenly'>
+            <%= link_to '新規登録して観戦記録をつける', new_user_path, class: 'btn-primary-green-sizeup col-lg-4 mb-1' %>
+          </div>
+          <div class='row mx-auto mb-sm-3 justify-content-evenly'>
+            <%= link_to 'ログインはこちら', login_path, class: 'btn-second-green col-lg-4 mb-1' %>
+            <%= link_to 'ゲストログインはこちら', login_path(guest_login: true), method: :post, class: 'btn-second-green col-lg-4 mb-1' %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
