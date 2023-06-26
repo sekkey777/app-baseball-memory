@@ -7,7 +7,7 @@ class PostsController < ApplicationController
 
   def index
     @q = Post.eager_load(:user, :baseball_team, :baseball_park, :category, :likes).with_attached_photo.ransack(params[:q])
-    @posts = @q.result.page(params[:page])
+    @posts = @q.result.page(params[:page]).order(updated_at: :desc)
   end
 
   def new
