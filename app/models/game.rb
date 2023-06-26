@@ -54,12 +54,12 @@ class Game < ApplicationRecord
     where(result: 'draw').count
   end
 
-  def self.total_count
-    count
+  def self.total_result_count
+    where(result: ['win', 'lose', 'draw']).count
   end
 
   def self.win_percentage
-    total_games = total_count.to_f
+    total_games = total_result_count.to_f
     return 0 if total_games.zero?
 
     (win_count / total_games * 100).round
