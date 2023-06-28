@@ -61,55 +61,102 @@ Category.create!(categories.map { |name| { name: name } })
 
 p '=========================== CREATE USERS ==========================='
 
+# 一般ユーザー
 5.times do |i|
-  User.create(name: "username#{i}", password: "password+#{i}", email: "username#{i}@email.com")
+  User.create(
+    name: "username#{i}",
+    password: SecureRandom.urlsafe_base64 + '+1234',
+    email: SecureRandom.hex(20) + '@appbaseballmemory.com'
+  )
 end
+
+# ゲストユーザー
+User.create(
+  name: 'guest_user',
+  password: SecureRandom.urlsafe_base64,
+  email: SecureRandom.hex(20) + '@appbaseballmemory.com'
+)
 
 p '=========================== CREATE POSTS ==========================='
 
-4.times do |i|
-  11.times do |j|
-    post = Post.create(
-      title: "#{j + 1}番目の投稿です。" * 5,
-      content: 'テストです。' * 50,
-      user_id: i,
-      baseball_team_id: (j + 1),
-      baseball_park_id: (j + 1),
-      category_id: (i + 1)
-    )
-    file_name = "image#{i * 11 + j + 1}.jpg"
-    file_path = Rails.root.join('app', 'assets', 'images', 'baseball-park-dummy-data.jpg')
-    post.photo.attach(io: File.open(file_path), filename: 'baseball-park-dummy-data.jpg', content_type: 'image/jpeg')
-    post.save
-  end
+demo_data = eval(File.read(Rails.root.join('db/demo/demo_post_data.rb')))
+
+demo_data.each do |data|
+  Post.create(
+    title: data[:title],
+    content: data[:content],
+    baseball_team: BaseballTeam.all.sample,
+    baseball_park: BaseballPark.all.sample,
+    category: Category.find(1),
+    user: User.all.sample,
+    photo: Rack::Test::UploadedFile.new(Rails.root.join('app', 'assets', 'images', 'baseball-park-dummy-data.jpg'), 'image/jpeg'),
+  )
 end
 
 p '=========================== CREATE GAMES ==========================='
 
-4.times do |i|
-  10.times do |j|
-    home_team_score = rand(16)
-    away_team_score = rand(16)
-    
-    result = if home_team_score > away_team_score
-               'win'
-             elsif home_team_score < away_team_score
-               'lose'
-             else
-               'draw'
-             end
-    Game.create(
-      date: "2023-05-#{j + 1}",
-      memo: "#{j + 1}番目の投稿です。" * 5,
-      home_team_id: (j + 1),
-      away_team_id: (j + 2),
-      baseball_park_id: (j + 1),
-      user_id: j,
-      home_team_score: home_team_score,
-      away_team_score: away_team_score,
-      result: result
-    )
-  end
+# すでに実施済みの試合
+15.times do |i|
+  home_team_score = rand(16)
+  away_team_score = rand(16)
+  date = Time.new(2023, rand(3..6), rand(1..30), 10, 10, 10)
+  home_team = BaseballTeam.all.sample
+  away_team = BaseballTeam.where.not(id: home_team.id).sample
+  
+  result = if home_team_score > away_team_score
+              'win'
+            elsif home_team_score < away_team_score
+              'lose'
+            else
+              'draw'
+            end
+  
+  Game.create(
+    date: date,
+    memo: "#{date.strftime('%-m月%-d日')}に実施された「#{home_team.name}」対「#{away_team.name}」の試合です。",
+    home_team: home_team,
+    away_team: away_team,
+    baseball_park: BaseballPark.all.sample,
+    user: User.find_by(name: 'guest_user'),
+    home_team_score: home_team_score,
+    away_team_score: away_team_score,
+    result: result
+  )
+end
+
+# 予定されている試合
+10.times do |i|
+  date = Time.new(2023, rand(7..9), rand(1..30), 10, 10, 10)
+  home_team = BaseballTeam.all.sample
+  away_team = BaseballTeam.where.not(id: home_team.id).sample
+  
+  Game.create(
+    date: date,
+    memo: "#{date.strftime('%-m月%-d日')}に実施予定の「#{home_team.name}」対「#{away_team.name}」の試合です。",
+    home_team: home_team,
+    away_team: away_team,
+    baseball_park: BaseballPark.all.sample,
+    user: User.find_by(name: 'guest_user'),
+    home_team_score: nil,
+    away_team_score: nil,
+    result: 'scheduled'
+  )
 end
 
 p '=========================== END ==========================='
+
+def set_result
+  if home_team_score.nil? || away_team_score.nil?
+    return self.result = 'scheduled'
+  end
+
+  if home_team_score > away_team_score
+    self.result = 'win'
+  elsif home_team_score < away_team_score
+    self.result = 'lose'
+  elsif home_team_score == away_team_score
+    self.result = 'draw'
+  else
+    self.result = 'scheduled'
+  end
+end
