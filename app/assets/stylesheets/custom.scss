@@ -259,6 +259,11 @@ body {
   }
 }
 
+.page-item.disabled .page-link {
+  color: $third-color-gray !important;
+  background-color: $second-color-green !important;
+}
+
 .page-item.active .page-link {
   color: $third-color-gray !important;
   background-color: $primary-color-green !important;
