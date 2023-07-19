@@ -11,10 +11,10 @@ RSpec.describe 'Sessions', type: :system do
         fill_in 'パスワード', with: user.password
         click_on 'ログインする'
       end
-      it '正常にログインし、投稿一覧ページに遷移できること' do
+      it '正常にログインし、観戦記録一覧ページに遷移できること' do
         expect(page).to have_content('ログインしました')
         expect(page).to have_content(user.name)
-        expect(page).to have_current_path(posts_path)
+        expect(page).to have_current_path(games_path)
       end
 
       it 'ログアウトできること' do
@@ -32,7 +32,7 @@ RSpec.describe 'Sessions', type: :system do
       it 'ゲストログインができること' do
         expect(page).to have_content('ゲストユーザーとしてログインしました')
         expect(page).to have_content('guest_user')
-        expect(page).to have_current_path(posts_path)
+        expect(page).to have_current_path(games_path)
       end
       it 'ゲストログインができること' do
         click_on 'ログアウト'

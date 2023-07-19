@@ -99,7 +99,7 @@ p '=========================== CREATE GAMES ==========================='
 15.times do |i|
   home_team_score = rand(16)
   away_team_score = rand(16)
-  date = Time.new(2023, rand(3..6), rand(1..30), 10, 10, 10)
+  date = Time.new(2023, rand(3..7), rand(1..30), 10, 10, 10)
   home_team = BaseballTeam.all.sample
   away_team = BaseballTeam.where.not(id: home_team.id).sample
   
@@ -126,7 +126,7 @@ end
 
 # 予定されている試合
 10.times do |i|
-  date = Time.new(2023, rand(7..9), rand(1..30), 10, 10, 10)
+  date = Time.new(2023, rand(8..10), rand(1..30), 10, 10, 10)
   home_team = BaseballTeam.all.sample
   away_team = BaseballTeam.where.not(id: home_team.id).sample
   

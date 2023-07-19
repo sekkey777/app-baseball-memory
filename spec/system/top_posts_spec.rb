@@ -24,7 +24,7 @@ RSpec.describe 'Posts', type: :system do
       click_on 'ゲストログインはこちら'
       expect(page).to have_content('ゲストユーザーとしてログインしました')
       expect(page).to have_content('guest_user')
-      expect(page).to have_current_path(posts_path)
+      expect(page).to have_current_path(games_path)
     end
   end
 

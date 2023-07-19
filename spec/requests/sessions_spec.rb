@@ -23,8 +23,8 @@ RSpec.describe 'Sessions', type: :request do
       post login_path, params: { session: { name: user.name, password: user.password } }
     end
 
-    it 'ログインできて、投稿一覧に遷移すること' do
-      expect(response).to redirect_to(posts_path)
+    it 'ログインできて、観戦記録一覧に遷移すること' do
+      expect(response).to redirect_to(games_path)
     end
     it 'session[:user_id]に値があること' do
       expect(session[:user_id]).not_to be_nil
@@ -76,7 +76,7 @@ RSpec.describe 'Sessions', type: :request do
       post login_path, params: { guest_login: true }
     end
     it 'ゲストユーザーでログインできること' do
-      expect(response).to redirect_to(posts_path)
+      expect(response).to redirect_to(games_path)
     end
     it '適正なフラッシュメッセージが表示されること' do
       expect(flash[:success]).to eq('ゲストユーザーとしてログインしました')
