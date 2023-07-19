@@ -15,14 +15,14 @@ class SessionsController < ApplicationController
       guest_user.save
       log_in_guest_user guest_user
       flash[:success] = 'ゲストユーザーとしてログインしました'
-      redirect_to posts_path
+      redirect_to games_path
     else
       # 通常のユーザーログインの処理を実行
       user = User.find_by(name: params[:session][:name])
       if user&.authenticate(params[:session][:password])
         log_in user
         flash[:success] = 'ログインしました。'
-        redirect_to posts_path
+        redirect_to games_path
       else
         flash.now[:danger] = 'ログインに失敗しました。ユーザー名、またはパスワードが違います。'
         render 'new'

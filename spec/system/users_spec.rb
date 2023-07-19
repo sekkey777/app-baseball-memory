@@ -47,7 +47,7 @@ RSpec.describe 'Users', type: :system do
 
     it 'ゲストログインできること' do
       click_on 'ゲストログイン', class: 'link-text'
-      expect(page).to have_current_path(posts_path)
+      expect(page).to have_current_path(games_path)
       expect(page).to have_content('ゲストユーザーとしてログインしました')
       expect(page).to have_content('guest_user')
     end
@@ -105,7 +105,7 @@ RSpec.describe 'Users', type: :system do
       fill_in 'ユーザー名', with: user.name
       fill_in 'パスワード', with: 'password+1'
       click_on 'ログインする'
-      expect(page).to have_current_path(posts_path)
+      expect(page).to have_current_path(games_path)
       expect(page).to have_content('ログインしました')
       expect(page).to have_content(user.name)
     end

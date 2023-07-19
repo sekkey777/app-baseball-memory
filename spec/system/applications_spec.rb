@@ -25,7 +25,7 @@ RSpec.describe 'Applications', type: :system do
 
       it 'ゲストログインできること' do
         click_on 'ゲストログイン'
-        expect(page).to have_current_path(posts_path)
+        expect(page).to have_current_path(games_path)
         expect(page).to have_content('ゲストユーザーとしてログインしました')
       end
 
