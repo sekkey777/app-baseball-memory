@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   skip_before_action :login_required, only: [:new, :create]
   before_action :set_user, only: [:show, :edit, :update]
+  before_action :checked_guest, only: [:edit]
 
   def new
     @user = User.new
@@ -42,5 +43,11 @@ class UsersController < ApplicationController
 
   def set_user
     @user = current_user
+  end
+
+  def checked_guest
+    if current_user.name == 'guest_user'
+      redirect_to user_path(current_user)
+    end
   end
 end
